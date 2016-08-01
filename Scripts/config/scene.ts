@@ -8,8 +8,17 @@
  */
 module config {
     export class Scene {
-        public static MENU:number = 0;
-        public static PLAY:number = 1;
-        public static OVER:number = 2;
+        public static MENU: number = 0;
+
+        // Level 1 Constants
+        public static STORY1: number = 0;
+        public static INSTRUCTIONS1: number = 0;
+        public static STAGELOADING1: number = 0;
+        public static LEVEL1: number = 0;
+        public static CONTINUE1: number = 0;
+        public static SHOP1: number = 0;
+
+        
+
     }
 }

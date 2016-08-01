@@ -5,7 +5,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.0 - initial commit
+ * @version 0.1.3 - added config.game.ts and config.screen.ts
  */
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
@@ -13,11 +13,6 @@ var core;
     // make a reference to the canvas element
     var canvas = document.getElementById("canvas");
     // score and lives variables
-    core.score = 0;
-    core.highSchore = 0;
-    core.lives = 5;
-    var helloLabel;
-    var startButton; // reference to our button class
     // declare scene variables
     var currentScene;
     var menu;
@@ -25,17 +20,7 @@ var core;
     var play;
     // asset manifest for images and sounds
     var assetData = [
-        { id: "startButton", src: "../../Assets/images/startButton.png" },
-        { id: "restartButton", src: "../../Assets/images/restartButton.png" },
-        { id: "nextButton", src: "../../Assets/images/nextButton.png" },
-        { id: "exitButton", src: "../../Assets/images/exitButton.png" },
-        { id: "ocean", src: "../../Assets/images/ocean.gif" },
-        { id: "island", src: "../../Assets/images/island.png" },
-        { id: "plane", src: "../../Assets/images/plane.png" },
-        { id: "cloud", src: "../../Assets/images/cloud.png" },
-        { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
-        { id: "yay", src: "../../Assets/audio/yay.ogg" },
-        { id: "engine", src: "../../Assets/audio/engine.ogg" }
+        { id: "ocean", src: "../../Assets/images/ocean.gif" }
     ];
     /**
      * This method preloads assets for the game
@@ -58,7 +43,7 @@ var core;
     function init() {
         core.stage = new createjs.Stage(canvas); // instatiate the stage container
         core.stage.enableMouseOver(20);
-        createjs.Ticker.framerate = 60;
+        createjs.Ticker.framerate = config.Game.FPS;
         createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
         // setup the default scene
         core.scene = config.Scene.MENU;
@@ -76,14 +61,6 @@ var core;
         currentScene.Update();
         core.stage.update(); // refreshes the stage
     }
-    /**
-     * This is the startButton click event handler
-     *
-     * @param {createjs.MouseEvent} event
-     */
-    function startButtonClick(event) {
-        helloLabel.text = "clicked!";
-    }
     function changeScene() {
         //Launch Various Scenes
         switch (core.scene) {
@@ -92,18 +69,6 @@ var core;
                 core.stage.removeAllChildren();
                 menu = new scenes.Menu();
                 currentScene = menu;
-                break;
-            // Show the PLAY Scene
-            case config.Scene.PLAY:
-                core.stage.removeAllChildren();
-                play = new scenes.Play();
-                currentScene = play;
-                break;
-            // Show the GAME OVER Scene
-            case config.Scene.OVER:
-                core.stage.removeAllChildren();
-                over = new scenes.Over();
-                currentScene = over;
                 break;
         }
     }

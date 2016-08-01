@@ -12,8 +12,13 @@ var config;
         function Scene() {
         }
         Scene.MENU = 0;
-        Scene.PLAY = 1;
-        Scene.OVER = 2;
+        // Level 1 Constants
+        Scene.STORY1 = 0;
+        Scene.INSTRUCTIONS1 = 0;
+        Scene.STAGELOADING1 = 0;
+        Scene.LEVEL1 = 0;
+        Scene.CONTINUE1 = 0;
+        Scene.SHOP1 = 0;
         return Scene;
     }());
     config.Scene = Scene;
