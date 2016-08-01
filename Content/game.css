@@ -1,3 +1,17 @@
+ /**
+  * @file game.css
+  * @author Kevin Ma kma45@my.centennialcollge.ca
+  * @studentID 300867968
+  * @date August 1, 2016
+  * @description This file is the manifest for styling done on the game
+  * @version 0.1.0 - intial commit
+  */
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/*attempted to use custom font, did not work*/
+/*@font-face {font-family: FlappyBird; src: url(../Assets/fonts/flappybirdfont.TTF) format(“truetype”); }*/
+
 body {
     background-color: lightgrey;
 }
@@ -13,3 +27,5 @@ canvas {
     display: block;
     background-color: white;
 }
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/

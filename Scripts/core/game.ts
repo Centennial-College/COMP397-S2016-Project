@@ -1,11 +1,12 @@
 /// <reference path="_reference.ts"/>
 
 /**
- * @author Tom Tsiliopoulos ttsliop@my.centennialcollege.ca
- * @studentID 300818577
- * @date July 11, 2016
- * @description This file is the entry point for the game
- * @version 0.1 - Initial version of the boilerplate
+ * @file game.ts
+ * @author Kevin Ma kma45@my.centennialcollge.ca
+ * @studentID 300867968
+ * @date August 1, 2016
+ * @description This file is entry point for the game
+ * @version 0.1.0 - initial commit
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
