@@ -4,13 +4,16 @@
   * @studentID 300867968
   * @date August 1, 2016
   * @description This file is the manifest for styling done on the game
-  * @version 0.1.0 - intial commit
+  * @version 0.1.2 - added custom flappy bird font
   */
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-/*attempted to use custom font, did not work*/
-/*@font-face {font-family: FlappyBird; src: url(../Assets/fonts/flappybirdfont.TTF) format(“truetype”); }*/
+/*Custom Font retrieved from dafont.com - Flappy Bird style font*/
+@font-face {
+    font-family: "DrowzyFont"; 
+    src: url(../Assets/fonts/04B_19__.TTF); 
+}
 
 body {
     background-color: lightgrey;

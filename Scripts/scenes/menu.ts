@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the menu scene for the game.
- * @version 0.1.1 - added labels to menu scene
+ * @version 0.1.2 - added custom flappy bird font
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -47,24 +47,21 @@ module scenes {
 
             // Add Title Label
             this._titleLabel = new objects.Label(
-                "The Drowzy Dragon", "60px", "Impact", "#FF0",
-                // "The Drowzy Dragon", "60px", "FlappyBird", "#FF0",
+                "The Drowzy Dragon", "60px", "DrowzyFont", "#FF0",
                 320, 240, true
             );
             this.addChild(this._titleLabel);
 
             // Add Instructions Label
             this._instructionsLabel = new objects.Label(
-                "Instructions", "40px", "Impact", "#FF0",
-                // "The Drowzy Dragon", "60px", "FlappyBird", "#FF0",
+                "Instructions", "40px", "DrowzyFont", "#FF0",
                 200, 300, true
             );
             this.addChild(this._instructionsLabel);
 
             // Add Play Game Label
             this._playGameLabel = new objects.Label(
-                "Play Game", "40px", "Impact", "#FF0",
-                // "The Drowzy Dragon", "60px", "FlappyBird", "#FF0",
+                "Play Game", "40px", "DrowzyFont", "#FF0",
                 450, 300, true
             );
             this.addChild(this._playGameLabel);
