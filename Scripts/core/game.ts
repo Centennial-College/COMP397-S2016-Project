@@ -6,7 +6,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.13 - included gameover into the game framework
+ * @version 0.1.14 - included exit scene into the game framework
 */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -35,6 +35,7 @@ namespace core {
     let shop: scenes.Shop;
     let continueScene: scenes.Continue;
     let gameover: scenes.GameOver;
+    let exit: scenes.Exit;
 
     // asset manifest for images and sounds
     let assetData: objects.Asset[] = [
@@ -251,11 +252,11 @@ namespace core {
                 currentScene = gameover;
                 break;
             // Show exit game scene
-            // case config.Scene.EXIT:
-            //     stage.removeAllChildren();
-            //     level = new scenes.Level(scene);
-            //     currentScene = level;
-            //     break;
+            case config.Scene.EXIT:
+                stage.removeAllChildren();
+                exit = new scenes.Exit(scene);
+                currentScene = exit;
+                break;
         }
     }
 

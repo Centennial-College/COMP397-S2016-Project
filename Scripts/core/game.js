@@ -5,7 +5,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.13 - included gameover into the game framework
+ * @version 0.1.14 - included exit scene into the game framework
 */
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
@@ -22,6 +22,7 @@ var core;
     var shop;
     var continueScene;
     var gameover;
+    var exit;
     // asset manifest for images and sounds
     var assetData = [
         { id: "ocean", src: "../../Assets/images/ocean.gif" },
@@ -223,6 +224,12 @@ var core;
                 core.stage.removeAllChildren();
                 gameover = new scenes.GameOver(core.scene);
                 currentScene = gameover;
+                break;
+            // Show exit game scene
+            case config.Scene.EXIT:
+                core.stage.removeAllChildren();
+                exit = new scenes.Exit(core.scene);
+                currentScene = exit;
                 break;
         }
     }
