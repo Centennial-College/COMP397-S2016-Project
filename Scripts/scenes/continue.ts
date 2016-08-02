@@ -107,10 +107,10 @@ module scenes {
             // Switch the scene depending on what current scene is
             switch (this.type) {
                 case config.Scene.CONTINUE1:
-                    core.scene = config.Scene.STAGELOADING2;
+                    core.scene = config.Scene.STORY2;
                     break;
                 case config.Scene.CONTINUE2:
-                    core.scene = config.Scene.STAGELOADING3;
+                    core.scene = config.Scene.STORY3;
                     break;
             }
             core.changeScene();

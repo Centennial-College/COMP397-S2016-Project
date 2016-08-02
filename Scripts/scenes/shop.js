@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the shop and new features scene for the game.
- * @version 0.1.9 - linked level1 to shop1
+ * @version 0.1.11 - included level 2 into the game framework
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -56,7 +56,7 @@ var scenes;
                     this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
                 // shop Stage for level 2
-                case config.Scene.SHOP1:
+                case config.Scene.SHOP2:
                     // add title of the scene
                     this._titleLabel = new objects.Label("Shop Stage 2", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
                     this.addChild(this._titleLabel);

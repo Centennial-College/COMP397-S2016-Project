@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the shop and new features scene for the game.
- * @version 0.1.9 - linked level1 to shop1
+ * @version 0.1.11 - included level 2 into the game framework
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -66,7 +66,7 @@ module scenes {
                     break;
 
                 // shop Stage for level 2
-                case config.Scene.SHOP1:
+                case config.Scene.SHOP2:
                     // add title of the scene
                     this._titleLabel = new objects.Label(
                         "Shop Stage 2", "60px", "DrowzyFont", "#000",

@@ -5,8 +5,8 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.10 - shop1 to continue1
- */
+ * @version 0.1.11 - included level 2 into the game framework
+*/
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
 (function (core) {
@@ -74,7 +74,8 @@ var core;
                 menu = new scenes.Menu(core.scene);
                 currentScene = menu;
                 break;
-            // Show the Background Story of the game
+            // LEVEL 1 ++++++++++++++++++++++++++++++++++++
+            // Show the Background Story of level 1
             case config.Scene.STORY1:
                 core.stage.removeAllChildren();
                 instructions = new scenes.Instructions(core.scene);
@@ -106,6 +107,43 @@ var core;
                 break;
             // show continue scene for level 1
             case config.Scene.CONTINUE1:
+                core.stage.removeAllChildren();
+                continueScene = new scenes.Continue(core.scene);
+                currentScene = continueScene;
+                break;
+            // LEVEL 2 ++++++++++++++++++++++++++++++++++++
+            // Show the Background Story of level 2
+            case config.Scene.STORY2:
+                core.stage.removeAllChildren();
+                instructions = new scenes.Instructions(core.scene);
+                currentScene = instructions;
+                break;
+            // Show the Instructions of level 2
+            case config.Scene.INSTRUCTIONS2:
+                core.stage.removeAllChildren();
+                instructions = new scenes.Instructions(core.scene);
+                currentScene = instructions;
+                break;
+            // Show loading stage for level 2
+            case config.Scene.STAGELOADING2:
+                core.stage.removeAllChildren();
+                stageLoading = new scenes.Loading(core.scene);
+                currentScene = stageLoading;
+                break;
+            // Show Level 2 of the game
+            case config.Scene.LEVEL2:
+                core.stage.removeAllChildren();
+                level = new scenes.Level(core.scene);
+                currentScene = level;
+                break;
+            // show Shop for Level 2
+            case config.Scene.SHOP2:
+                core.stage.removeAllChildren();
+                shop = new scenes.Shop(core.scene);
+                currentScene = shop;
+                break;
+            // show continue scene for level 2
+            case config.Scene.CONTINUE2:
                 core.stage.removeAllChildren();
                 continueScene = new scenes.Continue(core.scene);
                 currentScene = continueScene;
