@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file stores game constants for the different scenes
- * @version 0.1.4 - updated config.scene.ts to include other scenes
+ * @version 0.1.8 - linked level1 to loading1
  */
 var config;
 (function (config) {
@@ -13,7 +13,9 @@ var config;
         }
         ;
         Scene.MENU = 0;
-        Scene.OVER = 20;
+        Scene.OVERWIN = 20;
+        Scene.OVERLOSE = 24;
+        Scene.EXIT = 25;
         // Level 1 Constants
         Scene.STORY1 = 1;
         Scene.INSTRUCTIONS1 = 2;
@@ -37,6 +39,9 @@ var config;
         Scene.BOSS1 = 17;
         Scene.BOSS2 = 18;
         Scene.BOSS3 = 19;
+        Scene.BOSSLOADING1 = 21;
+        Scene.BOSSLOADING2 = 22;
+        Scene.BOSSLOADING3 = 23;
         return Scene;
     }());
     config.Scene = Scene;

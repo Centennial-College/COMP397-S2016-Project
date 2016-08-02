@@ -58,7 +58,7 @@ var scenes;
                 // Loading Stage for level 2
                 case config.Scene.STAGELOADING2:
                     // add title of the scene
-                    this._titleLabel = new objects.Label("Loading Stage 1", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+                    this._titleLabel = new objects.Label("Loading Stage 2", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
                     this.addChild(this._titleLabel);
                     // add link to go to level 2
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
@@ -66,10 +66,10 @@ var scenes;
                     // add event listeners
                     this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
-                // The loading of Level 1
+                // The loading of Level 3
                 case config.Scene.STAGELOADING3:
                     // add title of the scene
-                    this._titleLabel = new objects.Label("Loading Stage 1", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+                    this._titleLabel = new objects.Label("Loading Stage 3", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
                     this.addChild(this._titleLabel);
                     // add link to go to level 3
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);

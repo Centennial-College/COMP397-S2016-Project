@@ -4,13 +4,15 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file stores game constants for the different scenes
- * @version 0.1.4 - updated config.scene.ts to include other scenes
+ * @version 0.1.8 - linked level1 to loading1
  */
 module config {
     export class Scene {
 
         public static MENU: number = 0;
-        public static OVER: number = 20;
+        public static OVERWIN: number = 20;
+        public static OVERLOSE: number = 24;
+        public static EXIT: number = 25;
 
         // Level 1 Constants
         public static STORY1: number = 1;
@@ -38,6 +40,9 @@ module config {
         public static BOSS1: number = 17;
         public static BOSS2: number = 18;
         public static BOSS3: number = 19;
+        public static BOSSLOADING1: number = 21;
+        public static BOSSLOADING2: number = 22;
+        public static BOSSLOADING3: number = 23;
 
     }
 }

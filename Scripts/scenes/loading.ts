@@ -69,7 +69,7 @@ module scenes {
                 case config.Scene.STAGELOADING2:
                     // add title of the scene
                     this._titleLabel = new objects.Label(
-                        "Loading Stage 1", "60px", "DrowzyFont", "#000",
+                        "Loading Stage 2", "60px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X, config.Screen.CENTER_Y, true
                     );
                     this.addChild(this._titleLabel);
@@ -85,11 +85,11 @@ module scenes {
                     this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
 
-                // The loading of Level 1
+                // The loading of Level 3
                 case config.Scene.STAGELOADING3:
                     // add title of the scene
                     this._titleLabel = new objects.Label(
-                        "Loading Stage 1", "60px", "DrowzyFont", "#000",
+                        "Loading Stage 3", "60px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X, config.Screen.CENTER_Y, true
                     );
                     this.addChild(this._titleLabel);

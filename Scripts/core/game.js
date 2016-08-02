@@ -5,7 +5,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.7 - linked instructions1 and menu to stageloading1
+ * @version 0.1.8 - linked level1 to loading1
  */
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
