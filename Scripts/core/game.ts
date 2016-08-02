@@ -97,7 +97,13 @@ namespace core {
             // Show the Background Story of the game
             case config.Scene.STORY1:
                 stage.removeAllChildren();
-                instructions = new scenes.Instructions();
+                instructions = new scenes.Instructions(scene);
+                currentScene = instructions;
+                break;
+            // Show the Instructions of level 1
+            case config.Scene.INSTRUCTIONS1:
+                stage.removeAllChildren();
+                instructions = new scenes.Instructions(scene);
                 currentScene = instructions;
                 break;
             // Show Level 1 of the game

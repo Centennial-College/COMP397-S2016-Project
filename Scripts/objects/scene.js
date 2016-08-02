@@ -4,8 +4,8 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the prototype for a scene of the game.
- * @version 0.1.0 - initial commit
- */
+ * @version 0.1.6 - linked instructions1 to menu and features1
+ * */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -34,8 +34,10 @@ var objects;
          * Creates an instance of Scene.
          * The public method start is called when the object is instantiated
          */
-        function Scene() {
+        function Scene(type) {
             _super.call(this);
+            this.type = type;
+            this.type = type;
             this.Start();
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++

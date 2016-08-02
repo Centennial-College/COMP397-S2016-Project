@@ -3,7 +3,7 @@
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
  * @date August 1, 2016
- * @description This file is the menu scene for the game.
+ * @description This file is the level scene for the game.
  * @version 0.1.5 - created and linked instructions.ts to menu.ts 
  */
 
@@ -11,10 +11,10 @@
 
 module scenes {
     /**
-     * This Menu scene extends the objects.Scene object 
+     * This Level scene extends the objects.Scene object 
      * 
      * @export
-     * @class Menu
+     * @class Level
      * @extends {objects.Scene}
      */
     export class Level extends objects.Scene {
@@ -22,7 +22,7 @@ module scenes {
         private _levelLabel: objects.Label;
 
         /**
-         * Creates an instance of Menu.
+         * Creates an instance of Level.
          */
         constructor() {
             super();
@@ -30,7 +30,7 @@ module scenes {
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
-         * This method adds game objects to the menu scene
+         * This method adds game objects to the level scene
          * 
          * @public
          * @method start
@@ -48,7 +48,7 @@ module scenes {
         }
 
         /**
-         * Update game objects in the menu scene
+         * Update game objects in the level scene
          * 
          * @public
          * @method update

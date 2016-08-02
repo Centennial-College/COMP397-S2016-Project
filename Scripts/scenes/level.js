@@ -3,7 +3,7 @@
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
  * @date August 1, 2016
- * @description This file is the menu scene for the game.
+ * @description This file is the level scene for the game.
  * @version 0.1.5 - created and linked instructions.ts to menu.ts
  */
 var __extends = (this && this.__extends) || function (d, b) {
@@ -15,23 +15,23 @@ var __extends = (this && this.__extends) || function (d, b) {
 var scenes;
 (function (scenes) {
     /**
-     * This Menu scene extends the objects.Scene object
+     * This Level scene extends the objects.Scene object
      *
      * @export
-     * @class Menu
+     * @class Level
      * @extends {objects.Scene}
      */
     var Level = (function (_super) {
         __extends(Level, _super);
         /**
-         * Creates an instance of Menu.
+         * Creates an instance of Level.
          */
         function Level() {
             _super.call(this);
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
-         * This method adds game objects to the menu scene
+         * This method adds game objects to the level scene
          *
          * @public
          * @method start
@@ -44,7 +44,7 @@ var scenes;
             core.stage.addChild(this);
         };
         /**
-         * Update game objects in the menu scene
+         * Update game objects in the level scene
          *
          * @public
          * @method update
