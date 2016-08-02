@@ -6,7 +6,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.3 - added config.game.ts and config.screen.ts
+ * @version 0.1.5 - created and linked instructions.ts to menu.ts 
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -29,14 +29,13 @@ namespace core {
     export let scene: number;
 
     let menu: scenes.Menu;
-    let over: scenes.Over;
-    let play: scenes.Play;
-
-
+    let instructions: scenes.Instructions;
+    let level: scenes.Level;
 
     // asset manifest for images and sounds
     let assetData: objects.Asset[] = [
-        { id: "ocean", src: "../../Assets/images/ocean.gif" }
+        { id: "ocean", src: "../../Assets/images/ocean.gif" },
+        { id: "NextButton", src: "../../Assets/images/NextButton.png" }
     ];
 
     /**
@@ -95,7 +94,18 @@ namespace core {
                 menu = new scenes.Menu();
                 currentScene = menu;
                 break;
-            
+            // Show the Background Story of the game
+            case config.Scene.STORY1:
+                stage.removeAllChildren();
+                instructions = new scenes.Instructions();
+                currentScene = instructions;
+                break;
+            // Show Level 1 of the game
+            case config.Scene.LEVEL1:
+                stage.removeAllChildren();
+                level = new scenes.Level();
+                currentScene = level;
+                break;
         }
     }
 

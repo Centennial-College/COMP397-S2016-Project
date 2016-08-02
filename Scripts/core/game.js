@@ -5,7 +5,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.3 - added config.game.ts and config.screen.ts
+ * @version 0.1.5 - created and linked instructions.ts to menu.ts
  */
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
@@ -16,11 +16,12 @@ var core;
     // declare scene variables
     var currentScene;
     var menu;
-    var over;
-    var play;
+    var instructions;
+    var level;
     // asset manifest for images and sounds
     var assetData = [
-        { id: "ocean", src: "../../Assets/images/ocean.gif" }
+        { id: "ocean", src: "../../Assets/images/ocean.gif" },
+        { id: "NextButton", src: "../../Assets/images/NextButton.png" }
     ];
     /**
      * This method preloads assets for the game
@@ -69,6 +70,18 @@ var core;
                 core.stage.removeAllChildren();
                 menu = new scenes.Menu();
                 currentScene = menu;
+                break;
+            // Show the Background Story of the game
+            case config.Scene.STORY1:
+                core.stage.removeAllChildren();
+                instructions = new scenes.Instructions();
+                currentScene = instructions;
+                break;
+            // Show Level 1 of the game
+            case config.Scene.LEVEL1:
+                core.stage.removeAllChildren();
+                level = new scenes.Level();
+                currentScene = level;
                 break;
         }
     }
