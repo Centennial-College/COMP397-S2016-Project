@@ -62,7 +62,7 @@ module scenes {
 
                     // add link to continue screen
                     this._nextLabel = new objects.Label(
-                        "Continue?", "40px", "DrowzyFont", "#000",
+                        "Shop", "40px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
@@ -88,7 +88,7 @@ module scenes {
 
                     // add link to continue screen
                     this._nextLabel = new objects.Label(
-                        "Continue?", "40px", "DrowzyFont", "#000",
+                        "Shop", "40px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
@@ -114,7 +114,7 @@ module scenes {
 
                     // add link to continue screen
                     this._nextLabel = new objects.Label(
-                        "Continue?", "40px", "DrowzyFont", "#000",
+                        "Shop", "40px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);

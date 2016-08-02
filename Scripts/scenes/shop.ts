@@ -1,30 +1,30 @@
 /**
- * @file loading.ts
+ * @file shop.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
  * @date August 1, 2016
- * @description This file is the loading scene for the game.
- * @version 0.1.7 - linked instructions1 and menu to stageloading1
+ * @description This file is the shop and new features scene for the game.
+ * @version 0.1.9 - linked level1 to shop1
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 module scenes {
     /**
-     * The loading scene extends the objects.Scene object
+     * The shop scene extends the objects.Scene object
      * 
      * @export
-     * @class loading
+     * @class shop
      * @extends {objects.Scene}
      */
-    export class Loading extends objects.Scene {
+    export class Shop extends objects.Scene {
         //  PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         private _titleLabel: objects.Label;
         private _backLabel: objects.Label;
         private _nextLabel: objects.Label;
 
         /**
-         * Creates an instance of loading.
+         * Creates an instance of shop.
          * 
          * @param {string} type will be determined by config constants when changing scenes
          */
@@ -34,7 +34,7 @@ module scenes {
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
-         * This method adds game objects to the loading scene
+         * This method adds game objects to the shop scene
          * 
          * @public
          * @method start
@@ -45,18 +45,18 @@ module scenes {
              * This switch determines what scene is to be loaded into the canvas
              */
             switch (this.type) {
-                // Loading Stage for level 1
-                case config.Scene.STAGELOADING1:
+                // shop Stage for level 1
+                case config.Scene.SHOP1:
                     // add title of the scene
                     this._titleLabel = new objects.Label(
-                        "Loading Stage 1", "60px", "DrowzyFont", "#000",
+                        "Shop Stage 1", "60px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X, config.Screen.CENTER_Y, true
                     );
                     this.addChild(this._titleLabel);
 
                     // add link to go to level 1
                     this._nextLabel = new objects.Label(
-                        "Loading...", "40px", "DrowzyFont", "#000",
+                        "Continue?", "40px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
@@ -65,38 +65,18 @@ module scenes {
                     this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
 
-                // Loading Stage for level 2
-                case config.Scene.STAGELOADING2:
+                // shop Stage for level 2
+                case config.Scene.SHOP1:
                     // add title of the scene
                     this._titleLabel = new objects.Label(
-                        "Loading Stage 2", "60px", "DrowzyFont", "#000",
+                        "Shop Stage 2", "60px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X, config.Screen.CENTER_Y, true
                     );
                     this.addChild(this._titleLabel);
 
                     // add link to go to level 2
                     this._nextLabel = new objects.Label(
-                        "Loading...", "40px", "DrowzyFont", "#000",
-                        config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
-                    );
-                    this.addChild(this._nextLabel);
-
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
-                    break;
-
-                // The loading of Level 3
-                case config.Scene.STAGELOADING3:
-                    // add title of the scene
-                    this._titleLabel = new objects.Label(
-                        "Loading Stage 3", "60px", "DrowzyFont", "#000",
-                        config.Screen.CENTER_X, config.Screen.CENTER_Y, true
-                    );
-                    this.addChild(this._titleLabel);
-
-                    // add link to go to level 3
-                    this._nextLabel = new objects.Label(
-                        "Loading...", "40px", "DrowzyFont", "#000",
+                        "Continue?", "40px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
@@ -112,7 +92,7 @@ module scenes {
         }
 
         /**
-         * Update game objects in the loading scene
+         * Update game objects in the shop scene
          * 
          * @public
          * @method update
@@ -126,30 +106,14 @@ module scenes {
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // EVENT HANDLERS ++++++++++++++++
-        private _backButtonClick(event: createjs.MouseEvent): void {
-            // Switch the scene depending on what current scene is
-            switch (this.type) {
-                case config.Scene.STORY1:
-                    core.scene = config.Scene.MENU;
-                    break;
-                case config.Scene.INSTRUCTIONS1:
-                    core.scene = config.Scene.STORY1;
-                    break;
-            }
-            core.changeScene();
-        }
-
         private _nextButtonClick(event: createjs.MouseEvent): void {
             // Switch the scene depending on what current scene is
             switch (this.type) {
-                case config.Scene.STAGELOADING1:
-                    core.scene = config.Scene.LEVEL1;
+                case config.Scene.SHOP1:
+                    core.scene = config.Scene.CONTINUE1;
                     break;
-                case config.Scene.STAGELOADING2:
-                    core.scene = config.Scene.LEVEL2;
-                    break;
-                case config.Scene.STAGELOADING3:
-                    core.scene = config.Scene.BOSS1;
+                case config.Scene.SHOP2:
+                    core.scene = config.Scene.CONTINUE2;
                     break;
             }
             core.changeScene();

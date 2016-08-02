@@ -3,7 +3,7 @@
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
  * @date August 1, 2016
- * @description This file is the loading and new features scene for the game.
+ * @description This file is the loading scene for the game.
  * @version 0.1.7 - linked instructions1 and menu to stageloading1
  */
 var __extends = (this && this.__extends) || function (d, b) {

@@ -6,7 +6,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.8 - linked level1 to loading1
+ * @version 0.1.9 - linked level1 to shop1
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -32,6 +32,7 @@ namespace core {
     let instructions: scenes.Instructions;
     let stageLoading: scenes.Loading;
     let level: scenes.Level;
+    let shop: scenes.Shop;
 
     // asset manifest for images and sounds
     let assetData: objects.Asset[] = [
@@ -118,6 +119,12 @@ namespace core {
                 stage.removeAllChildren();
                 level = new scenes.Level(scene);
                 currentScene = level;
+                break;
+            // show Shop for Level 1
+            case config.Scene.SHOP1:
+                stage.removeAllChildren();
+                shop = new scenes.Shop(scene);
+                currentScene = shop;
                 break;
         }
     }
