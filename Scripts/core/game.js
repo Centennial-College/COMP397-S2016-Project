@@ -5,7 +5,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.9 - linked level1 to shop1
+ * @version 0.1.10 - shop1 to continue1
  */
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
@@ -20,6 +20,7 @@ var core;
     var stageLoading;
     var level;
     var shop;
+    var continueScene;
     // asset manifest for images and sounds
     var assetData = [
         { id: "ocean", src: "../../Assets/images/ocean.gif" },
@@ -102,6 +103,12 @@ var core;
                 core.stage.removeAllChildren();
                 shop = new scenes.Shop(core.scene);
                 currentScene = shop;
+                break;
+            // show continue scene for level 1
+            case config.Scene.CONTINUE1:
+                core.stage.removeAllChildren();
+                continueScene = new scenes.Continue(core.scene);
+                currentScene = continueScene;
                 break;
         }
     }

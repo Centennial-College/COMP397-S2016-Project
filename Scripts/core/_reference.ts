@@ -7,6 +7,8 @@
 /// <reference path="../objects/label.ts"/>
 /// <reference path="../objects/scene.ts"/>
 /// <reference path="../objects/ocean.ts"/>
+/// <reference path="../scenes/continue.ts"/>
+/// <reference path="../scenes/continue.ts"/>
 /// <reference path="../scenes/shop.ts"/>
 /// <reference path="../scenes/level.ts"/>
 /// <reference path="../scenes/loading.ts"/>
