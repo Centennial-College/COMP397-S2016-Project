@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the level scene for the game.
- * @version 0.1.8 - linked level1 to loading1
+ * @version 0.1.12 - included level 3 and boss encounters into the game framework
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -114,7 +114,7 @@ module scenes {
 
                     // add link to continue screen
                     this._nextLabel = new objects.Label(
-                        "Shop", "40px", "DrowzyFont", "#000",
+                        "BOSS 1", "40px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);

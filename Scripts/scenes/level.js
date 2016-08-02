@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the level scene for the game.
- * @version 0.1.8 - linked level1 to loading1
+ * @version 0.1.12 - included level 3 and boss encounters into the game framework
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -78,7 +78,7 @@ var scenes;
                     this._backLabel = new objects.Label("Suicide", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X - 150, config.Screen.CENTER_Y + 180, true);
                     this.addChild(this._backLabel);
                     // add link to continue screen
-                    this._nextLabel = new objects.Label("Shop", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
+                    this._nextLabel = new objects.Label("BOSS 1", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
                     this.addChild(this._nextLabel);
                     // add event listeners
                     this._nextLabel.on("click", this._nextButtonClick, this);

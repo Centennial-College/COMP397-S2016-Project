@@ -6,7 +6,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.11 - included level 2 into the game framework
+ * @version 0.1.12 - included level 3 and boss encounters into the game framework
 */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -174,7 +174,67 @@ namespace core {
                 break;
 
             // LEVEL 3 ++++++++++++++++++++++++++++++++++++
-
+            // Show the Background Story of level 3
+            case config.Scene.STORY3:
+                stage.removeAllChildren();
+                instructions = new scenes.Instructions(scene);
+                currentScene = instructions;
+                break;
+            // Show the Instructions of level 3
+            case config.Scene.INSTRUCTIONS3:
+                stage.removeAllChildren();
+                instructions = new scenes.Instructions(scene);
+                currentScene = instructions;
+                break;
+            // Show loading stage for level 3
+            case config.Scene.STAGELOADING3:
+                stage.removeAllChildren();
+                stageLoading = new scenes.Loading(scene);
+                currentScene = stageLoading;
+                break;
+            // Show Level 3 of the game
+            case config.Scene.LEVEL3:
+                stage.removeAllChildren();
+                level = new scenes.Level(scene);
+                currentScene = level;
+                break;
+            // BOSS ENCOUNTER ++++++++++++++++++++++++++++++++++++
+            // show boss1 dialogue and loading
+            case config.Scene.BOSSLOADING1:
+                stage.removeAllChildren();
+                 stageLoading = new scenes.Loading(scene);
+                currentScene = stageLoading;
+                break;
+            // Show Boss 1 level of the game
+            case config.Scene.BOSS1:
+                stage.removeAllChildren();
+                level = new scenes.Level(scene);
+                currentScene = level;
+                break;
+            // show boss2 dialogue and loading
+            case config.Scene.BOSSLOADING2:
+                stage.removeAllChildren();
+                stageLoading = new scenes.Loading(scene);
+                currentScene = stageLoading;
+                break;
+            // Show Boss 2 level of the game
+            case config.Scene.BOSS2:
+                stage.removeAllChildren();
+                level = new scenes.Level(scene);
+                currentScene = level;
+                break;
+            // show final boss dialogue and loading
+            case config.Scene.BOSSLOADING3:
+                stage.removeAllChildren();
+              stageLoading = new scenes.Loading(scene);
+                currentScene = stageLoading;
+                break;
+            // Show final boss level of the game
+            case config.Scene.BOSS3:
+                stage.removeAllChildren();
+                level = new scenes.Level(scene);
+                currentScene = level;
+                break;
         }
     }
 

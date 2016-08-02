@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the loading scene for the game.
- * @version 0.1.7 - linked instructions1 and menu to stageloading1
+ * @version 0.1.12 - included level 3 and boss encounters into the game framework
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -104,6 +104,66 @@ module scenes {
                     // add event listeners
                     this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
+
+                // The loading of first boss    
+                case config.Scene.BOSSLOADING1:
+                    // add title of the scene
+                    this._titleLabel = new objects.Label(
+                        "Loading First Boss", "60px", "DrowzyFont", "#000",
+                        config.Screen.CENTER_X, config.Screen.CENTER_Y, true
+                    );
+                    this.addChild(this._titleLabel);
+
+                    // add link to go to level 3
+                    this._nextLabel = new objects.Label(
+                        "Loading...", "40px", "DrowzyFont", "#000",
+                        config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
+                    );
+                    this.addChild(this._nextLabel);
+
+                    // add event listeners
+                    this._nextLabel.on("click", this._nextButtonClick, this);
+                    break;
+
+                // The loading of second boss    
+                case config.Scene.BOSSLOADING2:
+                    // add title of the scene
+                    this._titleLabel = new objects.Label(
+                        "Loading Second Boss", "60px", "DrowzyFont", "#000",
+                        config.Screen.CENTER_X, config.Screen.CENTER_Y, true
+                    );
+                    this.addChild(this._titleLabel);
+
+                    // add link to go to level 3
+                    this._nextLabel = new objects.Label(
+                        "Loading...", "40px", "DrowzyFont", "#000",
+                        config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
+                    );
+                    this.addChild(this._nextLabel);
+
+                    // add event listeners
+                    this._nextLabel.on("click", this._nextButtonClick, this);
+                    break;
+
+                // The loading of final boss    
+                case config.Scene.BOSSLOADING3:
+                    // add title of the scene
+                    this._titleLabel = new objects.Label(
+                        "Loading Final Boss", "60px", "DrowzyFont", "#000",
+                        config.Screen.CENTER_X, config.Screen.CENTER_Y, true
+                    );
+                    this.addChild(this._titleLabel);
+
+                    // add link to go to level 3
+                    this._nextLabel = new objects.Label(
+                        "Loading...", "40px", "DrowzyFont", "#000",
+                        config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
+                    );
+                    this.addChild(this._nextLabel);
+
+                    // add event listeners
+                    this._nextLabel.on("click", this._nextButtonClick, this);
+                    break;
             }
 
 
@@ -126,19 +186,6 @@ module scenes {
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // EVENT HANDLERS ++++++++++++++++
-        private _backButtonClick(event: createjs.MouseEvent): void {
-            // Switch the scene depending on what current scene is
-            switch (this.type) {
-                case config.Scene.STORY1:
-                    core.scene = config.Scene.MENU;
-                    break;
-                case config.Scene.INSTRUCTIONS1:
-                    core.scene = config.Scene.STORY1;
-                    break;
-            }
-            core.changeScene();
-        }
-
         private _nextButtonClick(event: createjs.MouseEvent): void {
             // Switch the scene depending on what current scene is
             switch (this.type) {
@@ -149,7 +196,16 @@ module scenes {
                     core.scene = config.Scene.LEVEL2;
                     break;
                 case config.Scene.STAGELOADING3:
+                    core.scene = config.Scene.LEVEL3;
+                    break;
+                case config.Scene.BOSSLOADING1:
                     core.scene = config.Scene.BOSS1;
+                    break;
+                case config.Scene.BOSSLOADING2:
+                    core.scene = config.Scene.BOSS2;
+                    break;
+                case config.Scene.BOSSLOADING3:
+                    core.scene = config.Scene.BOSS3;
                     break;
             }
             core.changeScene();
