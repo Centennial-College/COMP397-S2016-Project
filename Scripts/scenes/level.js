@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the level scene for the game.
- * @version 0.1.12 - included level 3 and boss encounters into the game framework
+ * @version 0.1.13 - included gameover into the game framework
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -123,6 +123,7 @@ var scenes;
                     this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
             }
+            this._backLabel.on("click", this._backButtonClick, this);
             // add this scene to the global scene container
             core.stage.addChild(this);
         };

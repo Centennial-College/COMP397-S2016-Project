@@ -3,7 +3,7 @@
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
  * @date August 1, 2016
- * @description This file is the shop and new features scene for the game.
+ * @description This file is the shop scene for the game.
  * @version 0.1.11 - included level 2 into the game framework
  */
 var __extends = (this && this.__extends) || function (d, b) {

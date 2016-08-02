@@ -6,7 +6,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.12 - included level 3 and boss encounters into the game framework
+ * @version 0.1.13 - included gameover into the game framework
 */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -34,6 +34,7 @@ namespace core {
     let level: scenes.Level;
     let shop: scenes.Shop;
     let continueScene: scenes.Continue;
+    let gameover: scenes.GameOver;
 
     // asset manifest for images and sounds
     let assetData: objects.Asset[] = [
@@ -202,7 +203,7 @@ namespace core {
             // show boss1 dialogue and loading
             case config.Scene.BOSSLOADING1:
                 stage.removeAllChildren();
-                 stageLoading = new scenes.Loading(scene);
+                stageLoading = new scenes.Loading(scene);
                 currentScene = stageLoading;
                 break;
             // Show Boss 1 level of the game
@@ -226,7 +227,7 @@ namespace core {
             // show final boss dialogue and loading
             case config.Scene.BOSSLOADING3:
                 stage.removeAllChildren();
-              stageLoading = new scenes.Loading(scene);
+                stageLoading = new scenes.Loading(scene);
                 currentScene = stageLoading;
                 break;
             // Show final boss level of the game
@@ -235,6 +236,26 @@ namespace core {
                 level = new scenes.Level(scene);
                 currentScene = level;
                 break;
+
+            // END GAME  ++++++++++++++++++++++++++++++++++++
+            // Show game over lose scene
+            case config.Scene.OVERLOSE:
+                stage.removeAllChildren();
+                gameover = new scenes.GameOver(scene);
+                currentScene = gameover;
+                break;
+            // Show game over win scene
+            case config.Scene.OVERWIN:
+                stage.removeAllChildren();
+                gameover = new scenes.GameOver(scene);
+                currentScene = gameover;
+                break;
+            // Show exit game scene
+            // case config.Scene.EXIT:
+            //     stage.removeAllChildren();
+            //     level = new scenes.Level(scene);
+            //     currentScene = level;
+            //     break;
         }
     }
 

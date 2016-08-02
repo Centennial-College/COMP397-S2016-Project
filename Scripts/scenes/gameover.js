@@ -1,10 +1,10 @@
 /**
- * @file continue.ts
+ * @file gameover.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
  * @date August 1, 2016
- * @description This file is the continue scene for the game.
- * @version 0.1.10 - shop1 to continue1
+ * @description This file is the gameover scene for the game.
+ * @version 0.1.13 - included gameover into the game framework
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,42 +15,53 @@ var __extends = (this && this.__extends) || function (d, b) {
 var scenes;
 (function (scenes) {
     /**
-     * The continue scene extends the objects.Scene object
+     * The gameover scene extends the objects.Scene object
      *
      * @export
-     * @class continue
+     * @class gameover
      * @extends {objects.Scene}
      */
-    var Continue = (function (_super) {
-        __extends(Continue, _super);
+    var GameOver = (function (_super) {
+        __extends(GameOver, _super);
         /**
-         * Creates an instance of continue.
+         * Creates an instance of gameover.
          *
          * @param {string} type will be determined by config constants when changing scenes
          */
-        function Continue(type) {
+        function GameOver(type) {
             _super.call(this, type);
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
-         * This method adds game objects to the continue scene
+         * This method adds game objects to the gameover scene
          *
          * @public
          * @method start
          * @returns {void}
          */
-        Continue.prototype.Start = function () {
+        GameOver.prototype.Start = function () {
             /**
              * This switch determines what scene is to be loaded into the canvas
              */
-            // add title of the scene
-            this._titleLabel = new objects.Label("Would you like to continue?", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._titleLabel);
-            // add link to return to menu
-            this._backLabel = new objects.Label("Replay Stage", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X - 150, config.Screen.CENTER_Y + 180, true);
+            switch (this.type) {
+                // win game
+                case config.Scene.OVERWIN:
+                    // add title of the scene
+                    this._titleLabel = new objects.Label("CONGRATULATIONS!", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+                    this.addChild(this._titleLabel);
+                    break;
+                // lose game
+                case config.Scene.OVERLOSE:
+                    // add title of the scene
+                    this._titleLabel = new objects.Label("GAME OVER", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+                    this.addChild(this._titleLabel);
+                    break;
+            }
+            // add link to play again
+            this._backLabel = new objects.Label("Play Again", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X - 150, config.Screen.CENTER_Y + 180, true);
             this.addChild(this._backLabel);
-            // add link to go to see Features
-            this._nextLabel = new objects.Label("Next Stage", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
+            // add link to exit game
+            this._nextLabel = new objects.Label("Quit Game", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
             this.addChild(this._nextLabel);
             // add event listeners
             this._backLabel.on("click", this._backButtonClick, this);
@@ -59,45 +70,31 @@ var scenes;
             core.stage.addChild(this);
         };
         /**
-         * Update game objects in the continue scene
+         * Update game objects in the gameover scene
          *
          * @public
          * @method update
          * @returns {void}
          */
-        Continue.prototype.Update = function () {
+        GameOver.prototype.Update = function () {
             // scene updates happen here...
             // this._ocean.update();
         };
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // EVENT HANDLERS ++++++++++++++++
-        Continue.prototype._backButtonClick = function (event) {
+        GameOver.prototype._backButtonClick = function (event) {
             // Switch the scene depending on what current scene is
-            switch (this.type) {
-                case config.Scene.CONTINUE1:
-                    core.scene = config.Scene.STAGELOADING1;
-                    break;
-                case config.Scene.CONTINUE2:
-                    core.scene = config.Scene.STAGELOADING2;
-                    break;
-            }
+            core.scene = config.Scene.STORY1;
             core.changeScene();
         };
-        Continue.prototype._nextButtonClick = function (event) {
+        GameOver.prototype._nextButtonClick = function (event) {
             // Switch the scene depending on what current scene is
-            switch (this.type) {
-                case config.Scene.CONTINUE1:
-                    core.scene = config.Scene.STORY2;
-                    break;
-                case config.Scene.CONTINUE2:
-                    core.scene = config.Scene.STORY3;
-                    break;
-            }
+            core.scene = config.Scene.EXIT;
             core.changeScene();
         };
-        return Continue;
+        return GameOver;
     }(objects.Scene));
-    scenes.Continue = Continue;
+    scenes.GameOver = GameOver;
 })(scenes || (scenes = {}));
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-//# sourceMappingURL=continue.js.map
+//# sourceMappingURL=gameover.js.map
