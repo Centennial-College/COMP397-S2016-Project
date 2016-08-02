@@ -32,9 +32,12 @@ module config {
         public static STORY3: number = 13;
         public static INSTRUCTIONS3: number = 14;
         public static STAGELOADING3: number = 15;
-        public static BOSS1: number = 16;
-        public static BOSS2: number = 17;
-        public static BOSS3: number = 18;
+        public static LEVEL3: number = 16;
+
+        // Boss Encounters
+        public static BOSS1: number = 17;
+        public static BOSS2: number = 18;
+        public static BOSS3: number = 19;
 
     }
 }

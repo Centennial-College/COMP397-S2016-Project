@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the prototype for a scene of the game.
- * @version 0.1.6 - linked instructions1 to menu and features1 
+* @version 0.1.7 - linked instructions1 and menu to stageloading1
  * */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -32,7 +32,7 @@ module objects {
          * Creates an instance of Scene.
          * The public method start is called when the object is instantiated
          */
-        constructor(private type: number) {
+        constructor(protected type: number) {
             super();
             this.type = type;
             this.Start();

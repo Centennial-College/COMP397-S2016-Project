@@ -32,9 +32,11 @@ var config;
         Scene.STORY3 = 13;
         Scene.INSTRUCTIONS3 = 14;
         Scene.STAGELOADING3 = 15;
-        Scene.BOSS1 = 16;
-        Scene.BOSS2 = 17;
-        Scene.BOSS3 = 18;
+        Scene.LEVEL3 = 16;
+        // Boss Encounters
+        Scene.BOSS1 = 17;
+        Scene.BOSS2 = 18;
+        Scene.BOSS3 = 19;
         return Scene;
     }());
     config.Scene = Scene;

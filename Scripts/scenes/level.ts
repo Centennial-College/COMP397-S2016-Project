@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the level scene for the game.
- * @version 0.1.5 - created and linked instructions.ts to menu.ts 
+ * @version 0.1.7 - linked instructions1 and menu to stageloading1
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -24,8 +24,8 @@ module scenes {
         /**
          * Creates an instance of Level.
          */
-        constructor() {
-            super();
+        constructor(type: number) {
+            super(type);
         }
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -8,6 +8,7 @@
 /// <reference path="../objects/scene.ts"/>
 /// <reference path="../objects/ocean.ts"/>
 /// <reference path="../scenes/level.ts"/>
+/// <reference path="../scenes/loading.ts"/>
 /// <reference path="../scenes/instructions.ts"/>
 /// <reference path="../scenes/menu.ts"/> 
 //# sourceMappingURL=_reference.js.map

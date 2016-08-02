@@ -6,7 +6,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is entry point for the game
- * @version 0.1.5 - created and linked instructions.ts to menu.ts 
+ * @version 0.1.7 - linked instructions1 and menu to stageloading1
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -30,6 +30,7 @@ namespace core {
 
     let menu: scenes.Menu;
     let instructions: scenes.Instructions;
+    let stageLoading: scenes.Loading;
     let level: scenes.Level;
 
     // asset manifest for images and sounds
@@ -91,7 +92,7 @@ namespace core {
             // Show the MENU Scene
             case config.Scene.MENU:
                 stage.removeAllChildren();
-                menu = new scenes.Menu();
+                menu = new scenes.Menu(scene);
                 currentScene = menu;
                 break;
             // Show the Background Story of the game
@@ -106,10 +107,16 @@ namespace core {
                 instructions = new scenes.Instructions(scene);
                 currentScene = instructions;
                 break;
+            // Show loading stage for level 1
+            case config.Scene.STAGELOADING1:
+                stage.removeAllChildren();
+                stageLoading = new scenes.Loading(scene);
+                currentScene = stageLoading;
+                break;
             // Show Level 1 of the game
             case config.Scene.LEVEL1:
                 stage.removeAllChildren();
-                level = new scenes.Level();
+                level = new scenes.Level(scene);
                 currentScene = level;
                 break;
         }

@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the level scene for the game.
- * @version 0.1.5 - created and linked instructions.ts to menu.ts
+ * @version 0.1.7 - linked instructions1 and menu to stageloading1
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -26,8 +26,8 @@ var scenes;
         /**
          * Creates an instance of Level.
          */
-        function Level() {
-            _super.call(this);
+        function Level(type) {
+            _super.call(this, type);
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
