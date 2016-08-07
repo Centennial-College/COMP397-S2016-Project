@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 1, 2016
  * @description This file is the prototype for a scene of the game.
-* @version 0.1.7 - linked instructions1 and menu to stageloading1
+ * @version 0.1.15 - addded fade in for menu scene
  * */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -49,6 +49,9 @@ var objects;
          * @returns {void}
          */
         Scene.prototype.Start = function () {
+            // FadeIn - 500 milliseconds
+            this._fadeIn(500);
+            // add this scene to the global scene container
             core.stage.addChild(this);
         };
         /**
@@ -85,20 +88,6 @@ var objects;
          */
         Scene.prototype._fadeIn = function (transitionTime) {
             createjs.Tween.get(this._background).to({ alpha: 0 }, transitionTime, createjs.Ease.getPowInOut(2));
-        };
-        /**
-         * FadeOut method that uses the background image and animations from tween.js
-         * to smoothly transition from one scene to the next. Callback is the function
-         * that is called when the transition finishes.
-         *
-         * @protected
-         * @method _fadeOut
-         * @param {number} transitionTime
-         * @param {*} callback
-         * @returns {void}
-         */
-        Scene.prototype._fadeOut = function (transitionTime, callback) {
-            createjs.Tween.get(this._background).to({ alpha: 0 }, transitionTime, createjs.Ease.getPowInOut(2)).call(callback);
         };
         return Scene;
     }(createjs.Container));

@@ -2,9 +2,9 @@
  * @file menu.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 1, 2016
+ * @date August 7, 2016
  * @description This file is the menu scene for the game.
- * @version 0.1.7 - linked instructions1 and menu to stageloading1
+ * @version 0.1.15 - addded fade in for menu scene
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -65,8 +65,10 @@ var scenes;
             // this._startButton.on("click", this._startButtonClick, this);
             this._instructionsLabel.on("click", this._instructionsButtonClick, this);
             this._playGameLabel.on("click", this._playGameButtonClick, this);
-            // add this scene to the global scene container
-            core.stage.addChild(this);
+            // Setup Background
+            this._setupBackground("WhiteBackground");
+            // fade-in and add scene to stage 
+            _super.prototype.Start.call(this);
         };
         /**
          * Update game objects in the menu scene
@@ -82,12 +84,12 @@ var scenes;
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // EVENT HANDLERS ++++++++++++++++
         Menu.prototype._instructionsButtonClick = function (event) {
-            // Switch the scene
+            // Switch to the STORY1 Scene
             core.scene = config.Scene.STORY1;
             core.changeScene();
         };
         Menu.prototype._playGameButtonClick = function (event) {
-            // Switch the scene
+            // Switch to the STAGELOADING1 Scene
             core.scene = config.Scene.STAGELOADING1;
             core.changeScene();
         };

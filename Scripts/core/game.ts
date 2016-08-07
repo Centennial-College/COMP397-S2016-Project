@@ -4,9 +4,9 @@
  * @file game.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 1, 2016
+ * @date August 7, 2016
  * @description This file is entry point for the game
- * @version 0.1.14 - included exit scene into the game framework
+ * @version 0.1.15 - addded fade in for menu scene
 */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -40,7 +40,7 @@ namespace core {
     // asset manifest for images and sounds
     let assetData: objects.Asset[] = [
         { id: "ocean", src: "../../Assets/images/ocean.gif" },
-        { id: "NextButton", src: "../../Assets/images/NextButton.png" }
+        { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" }
     ];
 
     /**
