@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date July 28, 2016
  * @description This file is the collision manager used to determine if there is collision between two GameObjects
- * @version 0.01.04 - updated clouds to move from right to left
+ * @version 0.01.05 - updated collision manager to check for horizontal collisions instead of vertical
  */
 var managers;
 (function (managers) {
@@ -54,7 +54,7 @@ var managers;
          */
         Collision.prototype.check = function (player, other) {
             // check to see if object is colliding
-            if (objects.Vector2.distance(player.position, other.position) < (player.halfHeight + other.halfHeight)) {
+            if (objects.Vector2.distance(player.position, other.position) < (player.halfWidth + other.halfWidth)) {
                 if (!other.isColliding) {
                     other.isColliding = true;
                     // if plane collides with cloud
