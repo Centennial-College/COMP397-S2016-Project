@@ -4,33 +4,38 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 /**
- * @file ocean.ts
+ * @file background.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date July 28, 2016
- * @description This file is the prototype for the ocean object.
- * @version 0.01.01 - changed ocean flow direction in ocean.ts and ocean.gif
+ * @date August 7, 2016
+ * @description This file is the prototype for the background object.
+ * @version 0.01.17 - created general background.ts class for side-scrolling background object
  */
 var objects;
 (function (objects) {
     /**
-     * This is the Ocean object used in the game
+     * This is the Background object used in the game
      *
      * @export
-     * @class Ocean
+     * @class Background
      * @extends {createjs.Bitmap}
      */
-    var Ocean = (function (_super) {
-        __extends(Ocean, _super);
+    var Background = (function (_super) {
+        __extends(Background, _super);
         // CONSTRUCTORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
-         * Creates an instance of Ocean.
+         * Creates an instance of Background.
          *
          * @constructor
          * @param {string} imageString
+         * @param {number} width
+         * @param {number} height
          */
-        function Ocean(imageString) {
+        function Background(imageString, width, height, scrollSpeed) {
             _super.call(this, core.assets.getResult(imageString));
+            this.width = width;
+            this.height = height;
+            this.scrollSpeed = scrollSpeed;
             this.start();
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++        
@@ -41,15 +46,7 @@ var objects;
          * @method _reset
          * @returns {void}
          */
-        Ocean.prototype._reset = function () {
-            // ocean picture is 640 x 1440
-            // canvas is 640 x 480
-            // start at -960 so that only one screens width on screen (1440-480 = 960)
-            // this.y = -960;
-            // now we are doing everything on its side
-            // ocean picture is 1440 x 640
-            // canvas is still 640 x 480
-            // 1440 - 640 = 800
+        Background.prototype._reset = function () {
             this.x = 0;
         };
         /**
@@ -59,8 +56,8 @@ var objects;
          * @method _checkBounds
          * @returns {void}
          */
-        Ocean.prototype._checkBounds = function () {
-            if (this.x <= -800) {
+        Background.prototype._checkBounds = function () {
+            if (this.x <= -(this.width - config.Screen.WIDTH)) {
                 this._reset();
             }
         };
@@ -73,9 +70,9 @@ var objects;
          * @method start
          * @returns {void}
          */
-        Ocean.prototype.start = function () {
+        Background.prototype.start = function () {
             this._reset();
-            this._dx = -5; // 5px per frame left
+            this._dx = -this.scrollSpeed;
         };
         /**
          * This method updates the object's properties
@@ -85,12 +82,12 @@ var objects;
          * @method update
          * @returns {void}
          */
-        Ocean.prototype.update = function () {
+        Background.prototype.update = function () {
             this.x += this._dx;
             this._checkBounds();
         };
-        return Ocean;
+        return Background;
     }(createjs.Bitmap));
-    objects.Ocean = Ocean;
+    objects.Background = Background;
 })(objects || (objects = {}));
-//# sourceMappingURL=ocean.js.map
+//# sourceMappingURL=background.js.map

@@ -1,31 +1,33 @@
 /**
- * @file ocean.ts
+ * @file background.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date July 28, 2016
- * @description This file is the prototype for the ocean object.
- * @version 0.01.01 - changed ocean flow direction in ocean.ts and ocean.gif
+ * @date August 7, 2016
+ * @description This file is the prototype for the background object.
+ * @version 0.01.17 - created general background.ts class for side-scrolling background object
  */
 module objects {
     /**
-     * This is the Ocean object used in the game
+     * This is the Background object used in the game
      * 
      * @export
-     * @class Ocean
+     * @class Background
      * @extends {createjs.Bitmap}
      */
-    export class Ocean extends createjs.Bitmap {
+    export class Background extends createjs.Bitmap {
         // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++
         private _dx: number;
 
         // CONSTRUCTORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
-         * Creates an instance of Ocean.
-         *
+         * Creates an instance of Background.
+         * 
          * @constructor 
          * @param {string} imageString
+         * @param {number} width
+         * @param {number} height
          */
-        constructor(imageString: string) {
+        constructor(imageString: string, private width: number, private height: number, private scrollSpeed: number) {
             super(core.assets.getResult(imageString));
 
             this.start();
@@ -40,15 +42,6 @@ module objects {
          * @returns {void}
          */
         private _reset(): void {
-            // ocean picture is 640 x 1440
-            // canvas is 640 x 480
-            // start at -960 so that only one screens width on screen (1440-480 = 960)
-            // this.y = -960;
-
-            // now we are doing everything on its side
-            // ocean picture is 1440 x 640
-            // canvas is still 640 x 480
-            // 1440 - 640 = 800
             this.x = 0;
         }
 
@@ -60,7 +53,7 @@ module objects {
          * @returns {void}
          */
         private _checkBounds(): void {
-            if (this.x <= -800) {
+            if (this.x <= -(this.width - config.Screen.WIDTH)) {
                 this._reset();
             }
         }
@@ -76,7 +69,7 @@ module objects {
          */
         public start(): void {
             this._reset();
-            this._dx = -5;   // 5px per frame left
+            this._dx = -this.scrollSpeed;
         }
 
         /**

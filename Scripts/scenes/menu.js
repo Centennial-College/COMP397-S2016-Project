@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 7, 2016
  * @description This file is the menu scene for the game.
- * @version 0.1.15 - addded fade in for menu scene
+ * @version 0.01.17 - created general background.ts class for side-scrolling background object
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -39,8 +39,11 @@ var scenes;
          */
         Menu.prototype.Start = function () {
             // Add Ocean Background
-            this._ocean = new objects.Ocean("ocean");
-            this.addChild(this._ocean);
+            // this._ocean = new objects.Ocean("ocean");
+            // this.addChild(this._ocean);
+            // Add Menu Background
+            this._menuBackground = new objects.Background("menubackground", 1920, 1200, 1);
+            this.addChild(this._menuBackground);
             // Add Title Label
             this._titleLabel = new objects.Label("The Drowzy Dragon", "60px", "DrowzyFont", "#FF0", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._titleLabel);
@@ -79,7 +82,7 @@ var scenes;
          */
         Menu.prototype.Update = function () {
             // scene updates happen here...
-            this._ocean.update();
+            this._menuBackground.update();
         };
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // EVENT HANDLERS ++++++++++++++++

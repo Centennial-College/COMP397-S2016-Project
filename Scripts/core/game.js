@@ -5,7 +5,7 @@
  * @studentID 300867968
  * @date August 7, 2016
  * @description This file is entry point for the game
- * @version 0.1.15 - addded fade in for menu scene
+ * @version 0.01.17 - created general background.ts class for side-scrolling background object
 */
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
@@ -26,7 +26,8 @@ var core;
     // asset manifest for images and sounds
     var assetData = [
         { id: "ocean", src: "../../Assets/images/ocean.gif" },
-        { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" }
+        { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" },
+        { id: "menubackground", src: "../../Assets/images/menubackground.png" },
     ];
     /**
      * This method preloads assets for the game
