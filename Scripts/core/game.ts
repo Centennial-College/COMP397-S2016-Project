@@ -39,9 +39,12 @@ namespace core {
 
     // asset manifest for images and sounds
     let assetData: objects.Asset[] = [
-        { id: "ocean", src: "../../Assets/images/ocean.gif" },
         { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" },
         { id: "menubackground", src: "../../Assets/images/menubackground.png" },
+        { id: "instructionsMenuButton", src: "../../Assets/images/instructionsMenuButton.png" },
+        { id: "instructionsMenuButton-hover", src: "../../Assets/images/instructionsMenuButton-hover.png" },
+        { id: "playMenuButton", src: "../../Assets/images/playMenuButton.png" },
+        { id: "playMenuButton-hover", src: "../../Assets/images/playMenuButton-hover.png" },
     ];
 
     /**

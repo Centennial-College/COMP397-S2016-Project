@@ -30,7 +30,7 @@ declare namespace createjs {
         constructor(imageOrUrl: HTMLImageElement | HTMLCanvasElement | HTMLVideoElement | Object | string);
 
         // properties
-        image: HTMLImageElement | HTMLCanvasElement | HTMLVideoElement;
+        image: HTMLImageElement | HTMLCanvasElement | HTMLVideoElement | Object;
         sourceRect: Rectangle;
 
         // methods

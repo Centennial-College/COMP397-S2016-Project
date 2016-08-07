@@ -2,9 +2,9 @@
  * @file button.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 1, 2016
+ * @date August 7, 2016
  * @description This file is the prototype for a GUI button control.
- * @version 0.1.0 - initial commit
+ * @version 0.1.18 - updated button class to include hover-over images when mouse-over
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -41,6 +41,7 @@ var objects;
          */
         function Button(pathString, x, y, isCentered) {
             _super.call(this, core.assets.getResult(pathString));
+            this.pathString = pathString;
             // Check if user wants to change regX and regY values to the center 
             if (isCentered) {
                 this.regX = this.getBounds().width * 0.5;
@@ -48,6 +49,7 @@ var objects;
             }
             this.x = x;
             this.y = y;
+            this.btnLabel = new objects.Label("Play Game", "40px", "DrowzyFont", "#FF0", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 80, true);
             // binds the mouseover and mouseout events to the button object
             this.on("mouseover", this._mouseOver, this);
             this.on("mouseout", this._mouseOut, this);
@@ -86,6 +88,7 @@ var objects;
          */
         Button.prototype._mouseOver = function (event) {
             this.alpha = 0.7;
+            this.image = core.assets.getResult(this.pathString + "-hover");
         };
         /**
          * This is an event handler for the mouseout event
@@ -97,6 +100,7 @@ var objects;
          */
         Button.prototype._mouseOut = function (event) {
             this.alpha = 1.0;
+            this.image = core.assets.getResult(this.pathString);
         };
         return Button;
     }(createjs.Bitmap));

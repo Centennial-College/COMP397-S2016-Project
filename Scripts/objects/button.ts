@@ -2,9 +2,9 @@
  * @file button.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 1, 2016
+ * @date August 7, 2016
  * @description This file is the prototype for a GUI button control.
- * @version 0.1.0 - initial commit
+ * @version 0.1.18 - updated button class to include hover-over images when mouse-over
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -25,6 +25,8 @@ module objects {
      * @extends {createjs.Bitmap}
      */
     export class Button extends createjs.Bitmap {
+
+        private btnLabel: objects.Label;
         // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Button.
@@ -34,7 +36,7 @@ module objects {
          * @param {number} y
          * @param {boolean} isCentered
          */
-        constructor(pathString: string, x: number, y: number, isCentered: boolean) {
+        constructor(private pathString: string, x: number, y: number, isCentered: boolean) {
             super(core.assets.getResult(pathString));
 
             // Check if user wants to change regX and regY values to the center 
@@ -45,6 +47,11 @@ module objects {
 
             this.x = x;
             this.y = y;
+
+            this.btnLabel = new objects.Label(
+                "Play Game", "40px", "DrowzyFont", "#FF0",
+                config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 80, true
+            );
 
             // binds the mouseover and mouseout events to the button object
             this.on("mouseover", this._mouseOver, this);
@@ -87,6 +94,7 @@ module objects {
          */
         private _mouseOver(event: createjs.MouseEvent): void {
             this.alpha = 0.7;
+            this.image = core.assets.getResult(this.pathString + "-hover");
         }
 
         /**
@@ -99,6 +107,7 @@ module objects {
          */
         private _mouseOut(event: createjs.MouseEvent): void {
             this.alpha = 1.0;
+            this.image = core.assets.getResult(this.pathString)
         }
     }
 }

@@ -25,9 +25,12 @@ var core;
     var exit;
     // asset manifest for images and sounds
     var assetData = [
-        { id: "ocean", src: "../../Assets/images/ocean.gif" },
         { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" },
         { id: "menubackground", src: "../../Assets/images/menubackground.png" },
+        { id: "instructionsMenuButton", src: "../../Assets/images/instructionsMenuButton.png" },
+        { id: "instructionsMenuButton-hover", src: "../../Assets/images/instructionsMenuButton-hover.png" },
+        { id: "playMenuButton", src: "../../Assets/images/playMenuButton.png" },
+        { id: "playMenuButton-hover", src: "../../Assets/images/playMenuButton-hover.png" },
     ];
     /**
      * This method preloads assets for the game

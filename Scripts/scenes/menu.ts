@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 7, 2016
  * @description This file is the menu scene for the game.
- * @version 0.01.17 - created general background.ts class for side-scrolling background object
+ * @version 0.1.18 - updated button class to include hover-over images when mouse-over
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -19,12 +19,11 @@ module scenes {
      */
     export class Menu extends objects.Scene {
         //  PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        // private _ocean: objects.Ocean;
         private _menuBackground: objects.Background;
+
         private _titleLabel: objects.Label;
-        private _instructionsLabel: objects.Label;
-        private _playGameLabel: objects.Label;
-        private _startButton: objects.Button;
+        private _playGameButton: objects.Button;
+        private _instructionsButton: objects.Button;
 
         /**
          * Creates an instance of Menu.
@@ -42,10 +41,6 @@ module scenes {
          * @returns {void}
          */
         public Start(): void {
-            // Add Ocean Background
-            // this._ocean = new objects.Ocean("ocean");
-            // this.addChild(this._ocean);
-
             // Add Menu Background
             this._menuBackground = new objects.Background(
                 "menubackground",
@@ -62,38 +57,28 @@ module scenes {
             );
             this.addChild(this._titleLabel);
 
-            // Add Instructions Label
-            this._instructionsLabel = new objects.Label(
-                "Instructions", "40px", "DrowzyFont", "#FF0",
-                config.Screen.CENTER_X - 150, config.Screen.CENTER_Y + 80, true
-            );
-            this.addChild(this._instructionsLabel);
+            // Add the Instructions Button
+            this._instructionsButton = new objects.Button(
+                "instructionsMenuButton",
+                config.Screen.CENTER_X - 150,
+                config.Screen.CENTER_Y + 80,
+                true
+            )
+            this.addChild(this._instructionsButton)
 
-            // this._startButton = new objects.Button(
-            //     "NextButton",
-            //     config.Screen.CENTER_X + 150,
-            //     config.Screen.CENTER_Y + 80, true
-            // )
-            // this.addChild(this._startButton);
+            // Add the Play Button
+            this._playGameButton = new objects.Button(
+                "playMenuButton",
+                config.Screen.CENTER_X + 150,
+                config.Screen.CENTER_Y + 80,
+                true
+            )
+            this.addChild(this._playGameButton);
 
-            // Add Play Game Label
-            this._playGameLabel = new objects.Label(
-                "Play Game", "40px", "DrowzyFont", "#FF0",
-                config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 80, true
-            );
-            this.addChild(this._playGameLabel);
+            // Add Event Listeners
+            this._instructionsButton.on("click", this._instructionsButtonClick, this);
 
-            // add the start button
-            // this._startButton = new objects.Button(
-            //     "NextButton", 320, 420, true
-            // )
-            // this.addChild(this._startButton);
-
-            // Start button event listener
-            // this._startButton.on("click", this._startButtonClick, this);
-            this._instructionsLabel.on("click", this._instructionsButtonClick, this);
-
-            this._playGameLabel.on("click", this._playGameButtonClick, this);
+            this._playGameButton.on("click", this._playGameButtonClick, this);
 
             // Setup Background
             this._setupBackground("WhiteBackground");
