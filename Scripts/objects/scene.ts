@@ -2,9 +2,9 @@
  * @file scene.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 1, 2016
+ * @date August 7, 2016
  * @description This file is the prototype for a scene of the game.
- * @version 0.1.15 - addded fade in for menu scene
+ * @version 0.2.0 - added fadein and loading animation to loading.ts
  * */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -90,6 +90,8 @@ module objects {
          * @returns {void}
          */
         protected _fadeIn(transitionTime: number): void {
+            // Setup Background
+            this._setupBackground("WhiteBackground");
             createjs.Tween.get(this._background).to({ alpha: 0 }, transitionTime,
                 createjs.Ease.getPowInOut(2));
         }

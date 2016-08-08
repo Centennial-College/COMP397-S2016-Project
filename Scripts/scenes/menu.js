@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 7, 2016
  * @description This file is the menu scene for the game.
- * @version 0.1.18 - updated button class to include hover-over images when mouse-over
+ * @version 0.2.0 - added fadein and loading animation to loading.ts
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -53,8 +53,6 @@ var scenes;
             // Add Event Listeners
             this._instructionsButton.on("click", this._instructionsButtonClick, this);
             this._playGameButton.on("click", this._playGameButtonClick, this);
-            // Setup Background
-            this._setupBackground("WhiteBackground");
             // fade-in and add scene to stage 
             _super.prototype.Start.call(this);
         };

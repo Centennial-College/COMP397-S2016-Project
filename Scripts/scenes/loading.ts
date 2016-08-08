@@ -2,9 +2,9 @@
  * @file loading.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 1, 2016
+ * @date August 7, 2016
  * @description This file is the loading scene for the game.
- * @version 0.1.12 - included level 3 and boss encounters into the game framework
+ * @version 0.2.0 - added fadein and loading animation to loading.ts
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -22,6 +22,8 @@ module scenes {
         private _titleLabel: objects.Label;
         private _backLabel: objects.Label;
         private _nextLabel: objects.Label;
+        private _startTime: number;
+        private _currentTime: number;
 
         /**
          * Creates an instance of loading.
@@ -30,6 +32,7 @@ module scenes {
          */
         constructor(type: number) {
             super(type);
+            this._startTime = new Date().getTime();
         }
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -60,9 +63,6 @@ module scenes {
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
-
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
 
                 // Loading Stage for level 2
@@ -80,9 +80,6 @@ module scenes {
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
-
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
 
                 // The loading of Level 3
@@ -100,9 +97,6 @@ module scenes {
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
-
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
 
                 // The loading of first boss    
@@ -120,9 +114,6 @@ module scenes {
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
-
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
 
                 // The loading of second boss    
@@ -140,9 +131,6 @@ module scenes {
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
-
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
 
                 // The loading of final boss    
@@ -160,15 +148,14 @@ module scenes {
                         config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true
                     );
                     this.addChild(this._nextLabel);
-
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
             }
 
+            // add event listeners
+            this._nextLabel.on("click", this._nextButtonClick, this);
 
-            // add this scene to the global scene container
-            core.stage.addChild(this);
+            // fade-in and add scene to stage 
+            super.Start()
         }
 
         /**
@@ -180,13 +167,38 @@ module scenes {
          */
         public Update(): void {
             // scene updates happen here...
-            // this._ocean.update();
+            this._currentTime = (new Date()).getTime();
+            let difference = this._currentTime - this._startTime;
+
+            // automatically change scenes after 3 seconds
+            if (Math.floor(difference / 1000) >= 3) {
+                this._nextButtonClick()
+            }
+
+            if (difference % 3 == 0)
+                switch (this._nextLabel.text) {
+                    case "Loading":
+                        this._nextLabel.text = "Loading."
+                        break;
+                    case "Loading.":
+                        this._nextLabel.text = "Loading.."
+                        break;
+                    case "Loading..":
+                        this._nextLabel.text = "Loading..."
+                        break;
+                    case "Loading...":
+                        this._nextLabel.text = "Loading"
+                        break;
+                }
+
+
         }
 
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // EVENT HANDLERS ++++++++++++++++
-        private _nextButtonClick(event: createjs.MouseEvent): void {
+        private _nextButtonClick(): void {
+            // private _nextButtonClick(event: createjs.MouseEvent): void {
             // Switch the scene depending on what current scene is
             switch (this.type) {
                 case config.Scene.STAGELOADING1:

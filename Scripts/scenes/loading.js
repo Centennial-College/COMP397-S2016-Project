@@ -2,9 +2,9 @@
  * @file loading.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 1, 2016
+ * @date August 7, 2016
  * @description This file is the loading scene for the game.
- * @version 0.1.12 - included level 3 and boss encounters into the game framework
+ * @version 0.2.0 - added fadein and loading animation to loading.ts
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -30,6 +30,7 @@ var scenes;
          */
         function Loading(type) {
             _super.call(this, type);
+            this._startTime = new Date().getTime();
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
@@ -52,8 +53,6 @@ var scenes;
                     // add link to go to level 1
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
                     this.addChild(this._nextLabel);
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
                 // Loading Stage for level 2
                 case config.Scene.STAGELOADING2:
@@ -63,8 +62,6 @@ var scenes;
                     // add link to go to level 2
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
                     this.addChild(this._nextLabel);
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
                 // The loading of Level 3
                 case config.Scene.STAGELOADING3:
@@ -74,8 +71,6 @@ var scenes;
                     // add link to go to level 3
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
                     this.addChild(this._nextLabel);
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
                 // The loading of first boss    
                 case config.Scene.BOSSLOADING1:
@@ -85,8 +80,6 @@ var scenes;
                     // add link to go to level 3
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
                     this.addChild(this._nextLabel);
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
                 // The loading of second boss    
                 case config.Scene.BOSSLOADING2:
@@ -96,8 +89,6 @@ var scenes;
                     // add link to go to level 3
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
                     this.addChild(this._nextLabel);
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
                 // The loading of final boss    
                 case config.Scene.BOSSLOADING3:
@@ -107,12 +98,12 @@ var scenes;
                     // add link to go to level 3
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);
                     this.addChild(this._nextLabel);
-                    // add event listeners
-                    this._nextLabel.on("click", this._nextButtonClick, this);
                     break;
             }
-            // add this scene to the global scene container
-            core.stage.addChild(this);
+            // add event listeners
+            this._nextLabel.on("click", this._nextButtonClick, this);
+            // fade-in and add scene to stage 
+            _super.prototype.Start.call(this);
         };
         /**
          * Update game objects in the loading scene
@@ -123,11 +114,32 @@ var scenes;
          */
         Loading.prototype.Update = function () {
             // scene updates happen here...
-            // this._ocean.update();
+            this._currentTime = (new Date()).getTime();
+            var difference = this._currentTime - this._startTime;
+            // automatically change scenes after 3 seconds
+            if (Math.floor(difference / 1000) >= 3) {
+                this._nextButtonClick();
+            }
+            if (difference % 3 == 0)
+                switch (this._nextLabel.text) {
+                    case "Loading":
+                        this._nextLabel.text = "Loading.";
+                        break;
+                    case "Loading.":
+                        this._nextLabel.text = "Loading..";
+                        break;
+                    case "Loading..":
+                        this._nextLabel.text = "Loading...";
+                        break;
+                    case "Loading...":
+                        this._nextLabel.text = "Loading";
+                        break;
+                }
         };
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // EVENT HANDLERS ++++++++++++++++
-        Loading.prototype._nextButtonClick = function (event) {
+        Loading.prototype._nextButtonClick = function () {
+            // private _nextButtonClick(event: createjs.MouseEvent): void {
             // Switch the scene depending on what current scene is
             switch (this.type) {
                 case config.Scene.STAGELOADING1:
