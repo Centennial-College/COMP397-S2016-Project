@@ -29,7 +29,7 @@ module scenes {
          * @param {string} type will be determined by config constants when changing scenes
          */
         constructor(type: number) {
-            super(type);
+            super(type,500);
         }
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -86,7 +86,7 @@ module scenes {
             this._nextLabel.on("click", this._nextButtonClick, this);
 
             // add this scene to the global scene container
-            core.stage.addChild(this);
+            super.Start();
         }
 
         /**

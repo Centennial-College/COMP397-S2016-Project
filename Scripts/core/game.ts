@@ -4,9 +4,9 @@
  * @file game.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 7, 2016
+ * @date August 8, 2016
  * @description This file is entry point for the game
- * @version 0.2.2 - implemented variable to check and display number of times replayed a stage
+ * @version 0.2.3 - updated level 1 interface
 */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -22,13 +22,16 @@ namespace core {
     // create a reference to a stage container
     export let stage: createjs.Stage;
 
-    // score and lives variables
+    // game variables
+    export let numberOfStageReplays: number;
+    export let evolutionPoints: number = 0;
+    export let hungerPoints: number;
+    export let gameDuration: number;
+    export let lives: number;
 
     // declare scene variables
-    let currentScene: objects.Scene;
     export let scene: number;
-    export let numberOfStageReplays: number;
-
+    let currentScene: objects.Scene;
     let menu: scenes.Menu;
     let instructions: scenes.Instructions;
     let stageLoading: scenes.Loading;
@@ -75,8 +78,15 @@ namespace core {
         createjs.Ticker.framerate = config.Game.FPS;
         createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
 
+        // initialize game variables
+        core.lives = 3;
+        core.hungerPoints = 0;
+        core.evolutionPoints = 0;
+        core.numberOfStageReplays = 1;
+
         // setup the default scene
-        scene = config.Scene.MENU;
+        scene = config.Scene.LEVEL1;
+        // scene = config.Scene.MENU;
         changeScene();
     }
 

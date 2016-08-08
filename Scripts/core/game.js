@@ -3,17 +3,16 @@
  * @file game.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 7, 2016
+ * @date August 8, 2016
  * @description This file is entry point for the game
- * @version 0.2.2 - implemented variable to check and display number of times replayed a stage
+ * @version 0.2.3 - updated level 1 interface
 */
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
 (function (core) {
     // make a reference to the canvas element
     var canvas = document.getElementById("canvas");
-    // score and lives variables
-    // declare scene variables
+    core.evolutionPoints = 0;
     var currentScene;
     var menu;
     var instructions;
@@ -56,8 +55,14 @@ var core;
         core.stage.enableMouseOver(20);
         createjs.Ticker.framerate = config.Game.FPS;
         createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
+        // initialize game variables
+        core.lives = 3;
+        core.hungerPoints = 0;
+        core.evolutionPoints = 0;
+        core.numberOfStageReplays = 1;
         // setup the default scene
-        core.scene = config.Scene.MENU;
+        core.scene = config.Scene.LEVEL1;
+        // scene = config.Scene.MENU;
         changeScene();
     }
     /**

@@ -29,7 +29,7 @@ var scenes;
          * @param {string} type will be determined by config constants when changing scenes
          */
         function GameOver(type) {
-            _super.call(this, type);
+            _super.call(this, type, 500);
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
@@ -67,7 +67,7 @@ var scenes;
             this._backLabel.on("click", this._backButtonClick, this);
             this._nextLabel.on("click", this._nextButtonClick, this);
             // add this scene to the global scene container
-            core.stage.addChild(this);
+            _super.prototype.Start.call(this);
         };
         /**
          * Update game objects in the gameover scene

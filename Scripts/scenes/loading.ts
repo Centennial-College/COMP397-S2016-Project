@@ -20,7 +20,6 @@ module scenes {
     export class Loading extends objects.Scene {
         //  PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         private _titleLabel: objects.Label;
-        private _backLabel: objects.Label;
         private _nextLabel: objects.Label;
         private _startTime: number;
         private _currentTime: number;
