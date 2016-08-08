@@ -1,15 +1,17 @@
 /**
- * @author Tom Tsiliopoulos ttsliop@my.centennialcollege.ca
- * @studentID 300818577
- * @date July 4, 2016
- * @version 0.01 - Initial version of the button class
+ * @file button.ts
+ * @author Kevin Ma kma45@my.centennialcollge.ca
+ * @studentID 300867968
+ * @date August 7, 2016
+ * @description This file is the prototype for a GUI button control.
+ * @version 0.1.18 - updated button class to include hover-over images when mouse-over
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 /**
  * This is the generic objects namespace
  *
@@ -20,6 +22,7 @@ var objects;
     /**
      * This simple Button class extends the createjs.Bitmap object.
      * It includes two private methods to handle mouseover and mouseout events.
+     * It also includes two public methods which enable/disable buttons.
      *
      * @export
      * @class Button
@@ -31,14 +34,14 @@ var objects;
         /**
          * Creates an instance of Button.
          *
-         * @constructor
          * @param {string} pathString
          * @param {number} x
          * @param {number} y
          * @param {boolean} isCentered
          */
-        function Button(imageString, x, y, isCentered) {
-            _super.call(this, core.assets.getResult(imageString));
+        function Button(pathString, x, y, isCentered) {
+            _super.call(this, core.assets.getResult(pathString));
+            this.pathString = pathString;
             // Check if user wants to change regX and regY values to the center 
             if (isCentered) {
                 this.regX = this.getBounds().width * 0.5;
@@ -46,10 +49,34 @@ var objects;
             }
             this.x = x;
             this.y = y;
+            this.btnLabel = new objects.Label("Play Game", "40px", "DrowzyFont", "#FF0", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 80, true);
             // binds the mouseover and mouseout events to the button object
             this.on("mouseover", this._mouseOver, this);
             this.on("mouseout", this._mouseOut, this);
         }
+        // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++
+        /**
+         * This method disables the mouse events for the button and turns it semi-transparent
+         *
+         * @public
+         * @method DisableButton
+         * @returns {void}
+         */
+        Button.prototype.DisableButton = function () {
+            this.alpha = 0.7;
+            this.mouseEnabled = false;
+        };
+        /**
+         * This method enables the button events for the button and turns its opaque
+         *
+         * @public
+         * @method EnableButton
+         * @returns {void}
+         */
+        Button.prototype.EnableButton = function () {
+            this.alpha = 1.0;
+            this.mouseEnabled = true;
+        };
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
          * This is an event handler for the mouseover event
@@ -57,9 +84,11 @@ var objects;
          * @private
          * @method _mouseOver
          * @param {createjs.MouseEvent} event
+         * @returns {void}
          */
         Button.prototype._mouseOver = function (event) {
             this.alpha = 0.7;
+            this.image = core.assets.getResult(this.pathString + "-hover");
         };
         /**
          * This is an event handler for the mouseout event
@@ -67,13 +96,15 @@ var objects;
          * @private
          * @method _mouseOut
          * @param {createjs.MouseEvent} event
+         * @returns {void}
          */
         Button.prototype._mouseOut = function (event) {
             this.alpha = 1.0;
+            this.image = core.assets.getResult(this.pathString);
         };
         return Button;
     }(createjs.Bitmap));
     objects.Button = Button;
 })(objects || (objects = {}));
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 //# sourceMappingURL=button.js.map

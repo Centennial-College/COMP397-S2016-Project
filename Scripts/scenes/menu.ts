@@ -1,57 +1,119 @@
+/**
+ * @file menu.ts
+ * @author Kevin Ma kma45@my.centennialcollge.ca
+ * @studentID 300867968
+ * @date August 7, 2016
+ * @description This file is the menu scene for the game.
+ * @version 0.1.18 - updated button class to include hover-over images when mouse-over
+ */
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 module scenes {
+    /**
+     * This Menu scene extends the objects.Scene object 
+     * 
+     * @export
+     * @class Menu
+     * @extends {objects.Scene}
+     */
     export class Menu extends objects.Scene {
-        //  PRIVATE INSTANCE VARIABLES
-        private _ocean: objects.Ocean;
-        private _menuLabel: objects.Label;
-        private _startButton: objects.Button;
+        //  PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        private _menuBackground: objects.Background;
+
+        private _titleLabel: objects.Label;
+        private _playGameButton: objects.Button;
+        private _instructionsButton: objects.Button;
 
         /**
          * Creates an instance of Menu.
-         * 
          */
-        constructor() {
-            super();
+        constructor(type: number) {
+            super(type);
+        }
+
+        // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        /**
+         * This method adds game objects to the menu scene
+         * 
+         * @public
+         * @method start
+         * @returns {void}
+         */
+        public Start(): void {
+            // Add Menu Background
+            this._menuBackground = new objects.Background(
+                "menubackground",
+                1920,
+                1200,
+                1
+            )
+            this.addChild(this._menuBackground);
+
+            // Add Title Label
+            this._titleLabel = new objects.Label(
+                "The Drowzy Dragon", "60px", "DrowzyFont", "#FF0",
+                config.Screen.CENTER_X, config.Screen.CENTER_Y, true
+            );
+            this.addChild(this._titleLabel);
+
+            // Add the Instructions Button
+            this._instructionsButton = new objects.Button(
+                "instructionsMenuButton",
+                config.Screen.CENTER_X - 150,
+                config.Screen.CENTER_Y + 80,
+                true
+            )
+            this.addChild(this._instructionsButton)
+
+            // Add the Play Button
+            this._playGameButton = new objects.Button(
+                "playMenuButton",
+                config.Screen.CENTER_X + 150,
+                config.Screen.CENTER_Y + 80,
+                true
+            )
+            this.addChild(this._playGameButton);
+
+            // Add Event Listeners
+            this._instructionsButton.on("click", this._instructionsButtonClick, this);
+
+            this._playGameButton.on("click", this._playGameButtonClick, this);
+
+            // Setup Background
+            this._setupBackground("WhiteBackground");
+
+            // fade-in and add scene to stage 
+            super.Start()
         }
 
         /**
+         * Update game objects in the menu scene
          * 
+         * @public
+         * @method update
+         * @returns {void}
          */
-        public Start(): void {
-            // Add Ocean Background
-            this._ocean = new objects.Ocean("ocean");
-            this.addChild(this._ocean);
-
-            // Add Menu Label
-            this._menuLabel = new objects.Label(
-                "MAIL PILOT", "60px", "Consolas", "#FF0",
-                320, 240, true
-            );
-            this.addChild(this._menuLabel);
-
-            // add the start button
-            this._startButton = new objects.Button(
-                "startButton", 320, 420, true
-            )
-            this.addChild(this._startButton);
-
-            // Start button event listener
-            this._startButton.on("click", this._startButtonClick, this);
-
-            // add this scene to the global scene container
-            core.stage.addChild(this);
-        }
-
         public Update(): void {
             // scene updates happen here...
-            this._ocean.update();
+            this._menuBackground.update();
         }
 
-        // EVENT HANDLERS ++++++++++++++++
+        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        private _startButtonClick(event: createjs.MouseEvent): void {
-            // Switch the scene
-            core.scene = config.Scene.PLAY;
+        // EVENT HANDLERS ++++++++++++++++
+        private _instructionsButtonClick(event: createjs.MouseEvent): void {
+            // Switch to the STORY1 Scene
+            core.scene = config.Scene.STORY1;
+            core.changeScene();
+        }
+
+        private _playGameButtonClick(event: createjs.MouseEvent): void {
+            // Switch to the STAGELOADING1 Scene
+            core.scene = config.Scene.STAGELOADING1;
             core.changeScene();
         }
     }
 }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

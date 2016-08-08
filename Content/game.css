@@ -1,15 +1,38 @@
-body {
-    background-color: lightgrey;
+ /**
+  * @file game.css
+  * @author Kevin Ma kma45@my.centennialcollge.ca
+  * @studentID 300867968
+  * @date August 7, 2016
+  * @description This file is the manifest for styling done on the game
+  * @version 0.1.16 - enlarged game canvas
+  */
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/*Custom Font retrieved from dafont.com - Flappy Bird style font*/
+@font-face {
+    font-family: "DrowzyFont"; 
+    src: url(../Assets/fonts/04B_19__.TTF); 
 }
 
-.container {
-    width: 100%;
+body {
+    background-color: black;
+}
+
+.game {
+    width: 100vw;
+    margin: 0 auto;
 }
 
 canvas {
-    border: 1px solid black;
+    width: 70vw;
+    margin-left: 15vw;
+    margin-right: 15vw;
     border-radius: 5px;
-    margin: 0 auto;
-    display: block;
+    border: 1px solid black;
+    text-align: center;
     background-color: white;
+    display: block;
 }
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/

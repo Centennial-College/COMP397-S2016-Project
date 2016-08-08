@@ -1,2 +1,2 @@
-# COMP397-S2016-Assignment4 for Centennial College
-## The Side Scroller Web Game
+# COMP397-S2016-Project for Centennial College
+## The Drowzy Dragon

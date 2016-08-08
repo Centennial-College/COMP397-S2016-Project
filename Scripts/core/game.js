@@ -1,40 +1,36 @@
 /// <reference path="_reference.ts"/>
 /**
- * @author Tom Tsiliopoulos ttsliop@my.centennialcollege.ca
- * @studentID 300818577
- * @date July 11, 2016
- * @description This file is the entry point for the game
- * @version 0.1 - Initial version of the boilerplate
- */
+ * @file game.ts
+ * @author Kevin Ma kma45@my.centennialcollge.ca
+ * @studentID 300867968
+ * @date August 7, 2016
+ * @description This file is entry point for the game
+ * @version 0.01.17 - created general background.ts class for side-scrolling background object
+*/
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
 (function (core) {
     // make a reference to the canvas element
     var canvas = document.getElementById("canvas");
     // score and lives variables
-    core.score = 0;
-    core.highSchore = 0;
-    core.lives = 5;
-    var helloLabel;
-    var startButton; // reference to our button class
     // declare scene variables
     var currentScene;
     var menu;
-    var over;
-    var play;
+    var instructions;
+    var stageLoading;
+    var level;
+    var shop;
+    var continueScene;
+    var gameover;
+    var exit;
     // asset manifest for images and sounds
     var assetData = [
-        { id: "startButton", src: "../../Assets/images/startButton.png" },
-        { id: "restartButton", src: "../../Assets/images/restartButton.png" },
-        { id: "nextButton", src: "../../Assets/images/nextButton.png" },
-        { id: "exitButton", src: "../../Assets/images/exitButton.png" },
-        { id: "ocean", src: "../../Assets/images/ocean.gif" },
-        { id: "island", src: "../../Assets/images/island.png" },
-        { id: "plane", src: "../../Assets/images/plane.png" },
-        { id: "cloud", src: "../../Assets/images/cloud.png" },
-        { id: "thunder", src: "../../Assets/audio/thunder.ogg" },
-        { id: "yay", src: "../../Assets/audio/yay.ogg" },
-        { id: "engine", src: "../../Assets/audio/engine.ogg" }
+        { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" },
+        { id: "menubackground", src: "../../Assets/images/menubackground.png" },
+        { id: "instructionsMenuButton", src: "../../Assets/images/instructionsMenuButton.png" },
+        { id: "instructionsMenuButton-hover", src: "../../Assets/images/instructionsMenuButton-hover.png" },
+        { id: "playMenuButton", src: "../../Assets/images/playMenuButton.png" },
+        { id: "playMenuButton-hover", src: "../../Assets/images/playMenuButton-hover.png" },
     ];
     /**
      * This method preloads assets for the game
@@ -57,7 +53,7 @@ var core;
     function init() {
         core.stage = new createjs.Stage(canvas); // instatiate the stage container
         core.stage.enableMouseOver(20);
-        createjs.Ticker.framerate = 60;
+        createjs.Ticker.framerate = config.Game.FPS;
         createjs.Ticker.on("tick", gameLoop); // create an event listener for the tick event
         // setup the default scene
         core.scene = config.Scene.MENU;
@@ -75,34 +71,169 @@ var core;
         currentScene.Update();
         core.stage.update(); // refreshes the stage
     }
-    /**
-     * This is the startButton click event handler
-     *
-     * @param {createjs.MouseEvent} event
-     */
-    function startButtonClick(event) {
-        helloLabel.text = "clicked!";
-    }
     function changeScene() {
         //Launch Various Scenes
         switch (core.scene) {
             // Show the MENU Scene
             case config.Scene.MENU:
                 core.stage.removeAllChildren();
-                menu = new scenes.Menu();
+                menu = new scenes.Menu(core.scene);
                 currentScene = menu;
                 break;
-            // Show the PLAY Scene
-            case config.Scene.PLAY:
+            // LEVEL 1 ++++++++++++++++++++++++++++++++++++
+            // Show the Background Story of level 1
+            case config.Scene.STORY1:
                 core.stage.removeAllChildren();
-                play = new scenes.Play();
-                currentScene = play;
+                instructions = new scenes.Instructions(core.scene);
+                currentScene = instructions;
                 break;
-            // Show the GAME OVER Scene
-            case config.Scene.OVER:
+            // Show the Instructions of level 1
+            case config.Scene.INSTRUCTIONS1:
                 core.stage.removeAllChildren();
-                over = new scenes.Over();
-                currentScene = over;
+                instructions = new scenes.Instructions(core.scene);
+                currentScene = instructions;
+                break;
+            // Show loading stage for level 1
+            case config.Scene.STAGELOADING1:
+                core.stage.removeAllChildren();
+                stageLoading = new scenes.Loading(core.scene);
+                currentScene = stageLoading;
+                break;
+            // Show Level 1 of the game
+            case config.Scene.LEVEL1:
+                core.stage.removeAllChildren();
+                level = new scenes.Level(core.scene);
+                currentScene = level;
+                break;
+            // show Shop for Level 1
+            case config.Scene.SHOP1:
+                core.stage.removeAllChildren();
+                shop = new scenes.Shop(core.scene);
+                currentScene = shop;
+                break;
+            // show continue scene for level 1
+            case config.Scene.CONTINUE1:
+                core.stage.removeAllChildren();
+                continueScene = new scenes.Continue(core.scene);
+                currentScene = continueScene;
+                break;
+            // LEVEL 2 ++++++++++++++++++++++++++++++++++++
+            // Show the Background Story of level 2
+            case config.Scene.STORY2:
+                core.stage.removeAllChildren();
+                instructions = new scenes.Instructions(core.scene);
+                currentScene = instructions;
+                break;
+            // Show the Instructions of level 2
+            case config.Scene.INSTRUCTIONS2:
+                core.stage.removeAllChildren();
+                instructions = new scenes.Instructions(core.scene);
+                currentScene = instructions;
+                break;
+            // Show loading stage for level 2
+            case config.Scene.STAGELOADING2:
+                core.stage.removeAllChildren();
+                stageLoading = new scenes.Loading(core.scene);
+                currentScene = stageLoading;
+                break;
+            // Show Level 2 of the game
+            case config.Scene.LEVEL2:
+                core.stage.removeAllChildren();
+                level = new scenes.Level(core.scene);
+                currentScene = level;
+                break;
+            // show Shop for Level 2
+            case config.Scene.SHOP2:
+                core.stage.removeAllChildren();
+                shop = new scenes.Shop(core.scene);
+                currentScene = shop;
+                break;
+            // show continue scene for level 2
+            case config.Scene.CONTINUE2:
+                core.stage.removeAllChildren();
+                continueScene = new scenes.Continue(core.scene);
+                currentScene = continueScene;
+                break;
+            // LEVEL 3 ++++++++++++++++++++++++++++++++++++
+            // Show the Background Story of level 3
+            case config.Scene.STORY3:
+                core.stage.removeAllChildren();
+                instructions = new scenes.Instructions(core.scene);
+                currentScene = instructions;
+                break;
+            // Show the Instructions of level 3
+            case config.Scene.INSTRUCTIONS3:
+                core.stage.removeAllChildren();
+                instructions = new scenes.Instructions(core.scene);
+                currentScene = instructions;
+                break;
+            // Show loading stage for level 3
+            case config.Scene.STAGELOADING3:
+                core.stage.removeAllChildren();
+                stageLoading = new scenes.Loading(core.scene);
+                currentScene = stageLoading;
+                break;
+            // Show Level 3 of the game
+            case config.Scene.LEVEL3:
+                core.stage.removeAllChildren();
+                level = new scenes.Level(core.scene);
+                currentScene = level;
+                break;
+            // BOSS ENCOUNTER ++++++++++++++++++++++++++++++++++++
+            // show boss1 dialogue and loading
+            case config.Scene.BOSSLOADING1:
+                core.stage.removeAllChildren();
+                stageLoading = new scenes.Loading(core.scene);
+                currentScene = stageLoading;
+                break;
+            // Show Boss 1 level of the game
+            case config.Scene.BOSS1:
+                core.stage.removeAllChildren();
+                level = new scenes.Level(core.scene);
+                currentScene = level;
+                break;
+            // show boss2 dialogue and loading
+            case config.Scene.BOSSLOADING2:
+                core.stage.removeAllChildren();
+                stageLoading = new scenes.Loading(core.scene);
+                currentScene = stageLoading;
+                break;
+            // Show Boss 2 level of the game
+            case config.Scene.BOSS2:
+                core.stage.removeAllChildren();
+                level = new scenes.Level(core.scene);
+                currentScene = level;
+                break;
+            // show final boss dialogue and loading
+            case config.Scene.BOSSLOADING3:
+                core.stage.removeAllChildren();
+                stageLoading = new scenes.Loading(core.scene);
+                currentScene = stageLoading;
+                break;
+            // Show final boss level of the game
+            case config.Scene.BOSS3:
+                core.stage.removeAllChildren();
+                level = new scenes.Level(core.scene);
+                currentScene = level;
+                break;
+            // END GAME  ++++++++++++++++++++++++++++++++++++
+            // Show game over lose scene
+            case config.Scene.OVERLOSE:
+                core.stage.removeAllChildren();
+                gameover = new scenes.GameOver(core.scene);
+                currentScene = gameover;
+                break;
+            // Show game over win scene
+            case config.Scene.OVERWIN:
+                core.stage.removeAllChildren();
+                gameover = new scenes.GameOver(core.scene);
+                currentScene = gameover;
+                break;
+            // Show exit game scene
+            case config.Scene.EXIT:
+                core.stage.removeAllChildren();
+                exit = new scenes.Exit(core.scene);
+                currentScene = exit;
                 break;
         }
     }
