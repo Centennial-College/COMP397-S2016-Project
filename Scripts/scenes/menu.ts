@@ -29,7 +29,7 @@ module scenes {
          * Creates an instance of Menu.
          */
         constructor(type: number) {
-            super(type);
+            super(type, 500);
         }
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

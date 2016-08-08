@@ -34,9 +34,10 @@ var objects;
          * Creates an instance of Scene.
          * The public method start is called when the object is instantiated
          */
-        function Scene(type) {
+        function Scene(type, _fadeInDuration) {
             _super.call(this);
             this.type = type;
+            this._fadeInDuration = _fadeInDuration;
             this.type = type;
             this.Start();
         }
@@ -50,7 +51,7 @@ var objects;
          */
         Scene.prototype.Start = function () {
             // FadeIn - 500 milliseconds
-            this._fadeIn(500);
+            this._fadeIn(this._fadeInDuration);
             // add this scene to the global scene container
             core.stage.addChild(this);
         };

@@ -31,7 +31,7 @@ module scenes {
          * @param {string} type will be determined by config constants when changing scenes
          */
         constructor(type: number) {
-            super(type);
+            super(type,500);
             this._startTime = new Date().getTime();
         }
 
@@ -52,7 +52,7 @@ module scenes {
                 case config.Scene.STAGELOADING1:
                     // add title of the scene
                     this._titleLabel = new objects.Label(
-                        "Loading Stage 1", "60px", "DrowzyFont", "#000",
+                        "STAGE 1-1", "60px", "DrowzyFont", "#000",
                         config.Screen.CENTER_X, config.Screen.CENTER_Y, true
                     );
                     this.addChild(this._titleLabel);

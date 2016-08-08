@@ -2,9 +2,9 @@
  * @file level.ts
  * @author Kevin Ma kma45@my.centennialcollge.ca
  * @studentID 300867968
- * @date August 1, 2016
+ * @date August 7, 2016
  * @description This file is the level scene for the game.
- * @version 0.1.13 - included gameover into the game framework
+ * @version 0.2.1 - added side-scrolling background and fade-in effect for level.ts
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -27,7 +27,7 @@ var scenes;
          * Creates an instance of Level.
          */
         function Level(type) {
-            _super.call(this, type);
+            _super.call(this, type, 1000);
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
@@ -43,8 +43,8 @@ var scenes;
              */
             switch (this.type) {
                 case config.Scene.LEVEL1:
-                // Loading Stage for level 1
-                case config.Scene.STAGELOADING1:
+                    this._bg = new objects.Background("level1bg", 1700, 510, 2);
+                    this.addChild(this._bg);
                     // add title of the scene
                     this._titleLabel = new objects.Label("Level 1", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
                     this.addChild(this._titleLabel);
@@ -125,7 +125,7 @@ var scenes;
             }
             this._backLabel.on("click", this._backButtonClick, this);
             // add this scene to the global scene container
-            core.stage.addChild(this);
+            _super.prototype.Start.call(this);
         };
         /**
          * Update game objects in the level scene
@@ -136,6 +136,7 @@ var scenes;
          */
         Level.prototype.Update = function () {
             // scene updates happen here...
+            this._bg.update();
         };
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // EVENT HANDLERS ++++++++++++++++

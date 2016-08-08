@@ -27,7 +27,7 @@ var scenes;
          * Creates an instance of Menu.
          */
         function Menu(type) {
-            _super.call(this, type);
+            _super.call(this, type, 500);
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**

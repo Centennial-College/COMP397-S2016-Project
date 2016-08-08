@@ -29,7 +29,7 @@ var scenes;
          * @param {string} type will be determined by config constants when changing scenes
          */
         function Loading(type) {
-            _super.call(this, type);
+            _super.call(this, type, 500);
             this._startTime = new Date().getTime();
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -48,7 +48,7 @@ var scenes;
                 // Loading Stage for level 1
                 case config.Scene.STAGELOADING1:
                     // add title of the scene
-                    this._titleLabel = new objects.Label("Loading Stage 1", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+                    this._titleLabel = new objects.Label("STAGE 1-1", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
                     this.addChild(this._titleLabel);
                     // add link to go to level 1
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);

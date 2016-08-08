@@ -32,7 +32,7 @@ module objects {
          * Creates an instance of Scene.
          * The public method start is called when the object is instantiated
          */
-        constructor(protected type: number) {
+        constructor(protected type: number, private _fadeInDuration: number) {
             super();
             this.type = type;
             this.Start();
@@ -48,7 +48,7 @@ module objects {
          */
         public Start(): void {
             // FadeIn - 500 milliseconds
-            this._fadeIn(500);
+            this._fadeIn(this._fadeInDuration);
 
             // add this scene to the global scene container
             core.stage.addChild(this);

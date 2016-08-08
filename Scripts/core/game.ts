@@ -45,6 +45,7 @@ namespace core {
         { id: "instructionsMenuButton-hover", src: "../../Assets/images/instructionsMenuButton-hover.png" },
         { id: "playMenuButton", src: "../../Assets/images/playMenuButton.png" },
         { id: "playMenuButton-hover", src: "../../Assets/images/playMenuButton-hover.png" },
+        { id: "level1bg", src: "../../Assets/images/level1bg.png" },
     ];
 
     /**
