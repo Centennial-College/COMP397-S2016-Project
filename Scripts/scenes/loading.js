@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 7, 2016
  * @description This file is the loading scene for the game.
- * @version 0.2.0 - added fadein and loading animation to loading.ts
+ * @version 0.2.2 - implemented variable to check and display number of times replayed a stage
  */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -48,7 +48,7 @@ var scenes;
                 // Loading Stage for level 1
                 case config.Scene.STAGELOADING1:
                     // add title of the scene
-                    this._titleLabel = new objects.Label("STAGE 1-1", "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+                    this._titleLabel = new objects.Label("STAGE 1-" + core.numberOfStageReplays, "60px", "DrowzyFont", "#000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
                     this.addChild(this._titleLabel);
                     // add link to go to level 1
                     this._nextLabel = new objects.Label("Loading...", "40px", "DrowzyFont", "#000", config.Screen.CENTER_X + 150, config.Screen.CENTER_Y + 180, true);

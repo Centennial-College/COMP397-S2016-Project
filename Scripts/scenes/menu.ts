@@ -4,7 +4,7 @@
  * @studentID 300867968
  * @date August 7, 2016
  * @description This file is the menu scene for the game.
- * @version 0.2.0 - added fadein and loading animation to loading.ts
+ * @version 0.2.2 - implemented variable to check and display number of times replayed a stage
  */
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -106,6 +106,9 @@ module scenes {
         }
 
         private _playGameButtonClick(event: createjs.MouseEvent): void {
+            // first try of playing stage 1
+            core.numberOfStageReplays = 1;
+
             // Switch to the STAGELOADING1 Scene
             core.scene = config.Scene.STAGELOADING1;
             core.changeScene();

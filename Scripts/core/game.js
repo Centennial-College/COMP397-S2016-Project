@@ -5,7 +5,7 @@
  * @studentID 300867968
  * @date August 7, 2016
  * @description This file is entry point for the game
- * @version 0.01.17 - created general background.ts class for side-scrolling background object
+ * @version 0.2.2 - implemented variable to check and display number of times replayed a stage
 */
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var core;
